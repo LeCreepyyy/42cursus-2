@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Account.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 18:51:35 by creepy            #+#    #+#             */
-/*   Updated: 2023/10/04 02:04:00 by creepy           ###   ########.fr       */
+/*   Updated: 2023/10/04 10:28:08 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int Account::_totalAmount = 0;
 void    Account::_displayTimestamp(void) {
     std::time_t timestamp = std::time(NULL);
     struct std::tm *tm_info = std::localtime(&timestamp);
-    
+
     int y = tm_info->tm_year + 1900;
     int m = tm_info->tm_mon + 1;
     int d = tm_info->tm_mday;
