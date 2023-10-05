@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 10:55:57 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/10/04 15:25:23 by vpoirot          ###   ########.fr       */
+/*   Updated: 2023/10/05 10:15:49 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 #include <string>
 
 Zombie::Zombie(void) {
+	setName("NONE");
 	return;
 }
 
 Zombie::Zombie(std::string name) {
 	setName(name);
+	return;
 }
 
 Zombie::~Zombie(void) {

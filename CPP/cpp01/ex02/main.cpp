@@ -5,19 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/04 10:50:04 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/10/05 10:48:04 by vpoirot          ###   ########.fr       */
+/*   Created: 2023/10/05 10:55:43 by vpoirot           #+#    #+#             */
+/*   Updated: 2023/10/05 11:16:00 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
-#include "Zombie.hpp"
-
-Zombie* zombieHorde(int N, std::string name);
 
 int	main(void) {
-	Zombie *zombie = zombieHorde(20, "Michels");
-	delete[] zombie;
-	return (0);
+	std::string str = "HI THIS IS BRAIN";
+	const void* address = static_cast<const void*>(&str);
+	std::cout << "String  | " << "Value : " << str << " ;\tMemory Address : " << address << std::endl;
+
+	std::string *p_str = &str;
+	const void* p_address = static_cast<const void*>(&p_str);
+	std::cout << "Pointer | " << "Value : " << *p_str << " ;\tMemory Address : " << p_address << std::endl;
+
+	std::string& r_str = str;
+	const void* r_address = static_cast<const void*>(&r_str);
+	std::cout << "Refence | " << "Value : " << r_str << " ;\tMemory Address : " << r_address << std::endl;
 }

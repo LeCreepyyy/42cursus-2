@@ -6,13 +6,13 @@
 #    By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 11:14:13 by vpoirot           #+#    #+#              #
-#    Updated: 2023/10/04 14:49:48 by vpoirot          ###   ########.fr        #
+#    Updated: 2023/10/05 10:36:52 by vpoirot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME        := zombie
 CC         := c++
-FLAGS    := -Wall -Wextra -Werror -std=c++98 -fsanitize=address
+FLAGS    := -Wall -Wextra -Werror -std=c++98
 
 SRCS        :=      main.cpp \
                           Zombie.cpp \

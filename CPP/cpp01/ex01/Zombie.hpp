@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 10:51:43 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/10/04 15:25:37 by vpoirot          ###   ########.fr       */
+/*   Updated: 2023/10/05 10:46:37 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@
 			std::string	getName(void);
 			void	setName(std::string name);
 			void	announce(void);
-			Zombie* zombieHorde( int N, std::string name );
 	};
 
 #endif
