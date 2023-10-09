@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 14:14:50 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/10/05 15:47:24 by vpoirot          ###   ########.fr       */
+/*   Updated: 2023/10/09 10:17:48 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,13 @@
 #include "Weapon.hpp"
 
 HumanB::HumanB(std::string name) : _weapon(NULL) {
+	std::cout << "HumanB | Constructor called" << std::endl;
 	this->_name = name;
 	return;
 }
 
 HumanB::~HumanB(void) {
+	std::cout << "HumanB | Destructor called" << std::endl;
 	return;
 }
 

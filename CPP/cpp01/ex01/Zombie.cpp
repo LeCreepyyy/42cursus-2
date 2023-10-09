@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 10:55:57 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/10/05 10:15:49 by vpoirot          ###   ########.fr       */
+/*   Updated: 2023/10/09 10:12:24 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,18 @@
 
 Zombie::Zombie(void) {
 	setName("NONE");
+	std::cout << "Constructor called" << std::endl;
 	return;
 }
 
 Zombie::Zombie(std::string name) {
 	setName(name);
+	std::cout << "Constructor called" << std::endl;
 	return;
 }
 
 Zombie::~Zombie(void) {
-	std::cout << _name << " deleted" << std::endl;
+	std::cout << _name << " deleted | Destructor called" << std::endl;
 	return;
 }
 

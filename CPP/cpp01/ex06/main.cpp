@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 13:26:30 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/10/07 00:27:09 by creepy           ###   ########.fr       */
+/*   Updated: 2023/10/09 10:27:09 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int main(int argc, char **argv) {
 	if (argc != 2) {
 		std::cout << "Arg Error" << std::endl;
+		return (1);
 	}
 	Harl	harl;
 	std::string args[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
@@ -34,7 +35,7 @@ int main(int argc, char **argv) {
 		harl.complain("ERROR");
 		break;
 	case 4:
-		std::cout << "[ Probably complaining about insignificant problems ]";
+		std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 
 	default:
 		break;
