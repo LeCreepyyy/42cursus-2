@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
+/*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 11:24:53 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/10/10 14:37:50 by vpoirot          ###   ########.fr       */
+/*   Updated: 2023/10/12 00:59:28 by creepy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,26 @@ Fixed::Fixed(const Fixed& fix) : _fixedPoints(fix._fixedPoints) {
 }
 
 Fixed::Fixed(const int number) {
-	this->setRawBits(number);
+	std::cout << "Int constructor called" << std::endl;
+	//this->setRawBits(number);
+	this->_fixedPoints = number << this->_fragBits;
 }
 
 Fixed::Fixed(const float number) {
 	std::cout << "Float constructor called" << std::endl;
-	this->_fixedPoints = toFloat();
-	this->_fixedPoints = number;
+	//this->_fixedPoints = static_cast<float>(number) / 100;
+	this->_fixedPoints = static_cast<int>(number * (1 << this->_fragBits) + 0.5);
 }
 
 Fixed&	Fixed::operator=(const Fixed& fix) {
 	std::cout << "Copy assignment operator called" << std::endl;
 	this->_fixedPoints = fix.getRawBits();
 	return (*this);
+}
+
+std::ostream& operator<<(std::ostream& out, const Fixed& fix) {
+	out << fix.toFloat();
+	return (out);
 }
 
 Fixed::~Fixed(void) {
@@ -53,9 +60,11 @@ void	Fixed::setRawBits(int const raw) {
 }
 
 float Fixed::toFloat( void ) const {
-	return (static_cast<float>(this->_fixedPoints));
+	return (this->_fixedPoints / static_cast<float>(1 << this->_fragBits));
+	//return (static_cast<float>(this->_fixedPoints));
 }
 
 int Fixed::toInt( void ) const {
-	return (static_cast<int>(this->_fixedPoints));
+	return (this->_fixedPoints >> this->_fragBits);
+	//return (static_cast<int>(this->_fixedPoints * 100));
 }

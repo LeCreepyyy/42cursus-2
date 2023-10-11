@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
+/*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 11:23:25 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/10/10 14:14:18 by vpoirot          ###   ########.fr       */
+/*   Updated: 2023/10/11 22:43:06 by creepy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@
 			float toFloat( void ) const;
 			int toInt( void ) const;
 	};
+	std::ostream& operator<<(std::ostream& out, const Fixed& fix);
 
 #endif
