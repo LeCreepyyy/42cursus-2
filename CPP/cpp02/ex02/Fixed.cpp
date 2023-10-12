@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 11:24:53 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/10/12 10:15:56 by vpoirot          ###   ########.fr       */
+/*   Updated: 2023/10/12 14:17:23 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,6 @@ Fixed::Fixed(const float number) {
 	this->_fixedPoints = static_cast<int>(number * (1 << this->_fragBits) + 0.5);
 }
 
-Fixed&	Fixed::operator=(const Fixed& fix) {
-	std::cout << "Copy assignment operator called" << std::endl;
-	this->_fixedPoints = fix.getRawBits();
-	return (*this);
-}
-
-std::ostream& operator<<(std::ostream& out, const Fixed& fix) {
-	out << fix.toFloat();
-	return (out);
-}
 
 Fixed::~Fixed(void) {
 	std::cout << "Destructor called" << std::endl;
@@ -62,4 +52,53 @@ float Fixed::toFloat( void ) const {
 
 int Fixed::toInt( void ) const {
 	return (this->_fixedPoints >> this->_fragBits);
+}
+
+// overload operator
+
+Fixed&	Fixed::operator=(const Fixed& fix) {
+	this->_fixedPoints = fix.getRawBits();
+	return (*this);
+}
+
+Fixed& Fixed::operator+(const Fixed& fix) {
+	this->_fixedPoints = fix.getRawBits() + 1;
+	return (*this);
+}
+
+// global overload
+
+std::ostream& operator<<(std::ostream& out, const Fixed& fix) {
+	out << fix.toFloat();
+	return (out);
+}
+
+std::ostream& operator>(std::ostream& out, const Fixed& fix) {
+	out << fix.toFloat();
+	return (out);
+}
+
+std::ostream& operator<(std::ostream& out, const Fixed& fix) {
+	out << fix.toFloat();
+	return (out);
+}
+
+std::ostream& operator>=(std::ostream& out, const Fixed& fix) {
+	out << fix.toFloat();
+	return (out);
+}
+
+std::ostream& operator<=(std::ostream& out, const Fixed& fix) {
+	out << fix.toFloat();
+	return (out);
+}
+
+std::ostream& operator==(std::ostream& out, const Fixed& fix) {
+	out << fix.toFloat();
+	return (out);
+}
+
+std::ostream& operator!=(std::ostream& out, const Fixed& fix) {
+	out << fix.toFloat();
+	return (out);
 }
