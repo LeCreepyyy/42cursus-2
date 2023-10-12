@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 11:24:53 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/10/12 14:17:23 by vpoirot          ###   ########.fr       */
+/*   Updated: 2023/10/12 14:47:54 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ Fixed&	Fixed::operator=(const Fixed& fix) {
 }
 
 Fixed& Fixed::operator+(const Fixed& fix) {
-	this->_fixedPoints = fix.getRawBits() + 1;
+	this->_fixedPoints = fix.getRawBits();
 	return (*this);
 }
 
