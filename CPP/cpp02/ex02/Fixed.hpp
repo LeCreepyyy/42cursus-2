@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 11:23:25 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/10/12 14:10:17 by vpoirot          ###   ########.fr       */
+/*   Updated: 2023/10/13 13:45:07 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,21 @@
 			Fixed& operator-(const Fixed& fix);
 			Fixed& operator*(const Fixed& fix);
 			Fixed& operator/(const Fixed& fix);
+			bool operator>(const Fixed& fix);
+			bool operator<(const Fixed& fix);
+			bool operator>=(const Fixed& fix);
+			bool operator<=(const Fixed& fix);
+			bool operator==(const Fixed& fix);
+			bool operator!=(const Fixed& fix);
+			Fixed& operator++();
+			Fixed operator++(int);
 			~Fixed(void);
+			Fixed& max(const Fixed& a, const Fixed& b);
 			int getRawBits( void ) const;
 			void setRawBits( int const raw );
 			float toFloat( void ) const;
 			int toInt( void ) const;
 	};
 	std::ostream& operator<<(std::ostream& out, const Fixed& fix);
-	std::ostream& operator>(std::ostream& out, const Fixed& fix);
-	std::ostream& operator<(std::ostream& out, const Fixed& fix);
-	std::ostream& operator>=(std::ostream& out, const Fixed& fix);
-	std::ostream& operator<=(std::ostream& out, const Fixed& fix);
-	std::ostream& operator==(std::ostream& out, const Fixed& fix);
-	std::ostream& operator!=(std::ostream& out, const Fixed& fix);
 
 #endif

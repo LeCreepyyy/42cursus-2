@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 11:24:53 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/10/12 14:47:54 by vpoirot          ###   ########.fr       */
+/*   Updated: 2023/10/13 13:57:14 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,39 +66,65 @@ Fixed& Fixed::operator+(const Fixed& fix) {
 	return (*this);
 }
 
+Fixed& Fixed::operator-(const Fixed& fix) {
+	this->_fixedPoints = fix.getRawBits();
+	return (*this);
+}
+
+Fixed& Fixed::operator*(const Fixed& fix) {
+	this->_fixedPoints = fix.getRawBits();
+	return (*this);
+}
+
+Fixed& Fixed::operator/(const Fixed& fix) {
+	this->_fixedPoints = fix.getRawBits();
+	return (*this);
+}
+
+Fixed& Fixed::operator++() {
+	++_fixedPoints;
+	return (*this);
+}
+
+Fixed Fixed::operator++(int) {
+	Fixed tmp(*this);
+	++_fixedPoints;
+	return (tmp);
+}
+
+bool Fixed::operator>(const Fixed& fix) {
+	bool res = this->_fixedPoints > fix._fixedPoints;
+	return (res);
+}
+
+bool Fixed::operator<(const Fixed& fix) {
+	bool res = this->_fixedPoints < fix._fixedPoints;
+	return (res);
+}
+
+bool Fixed::operator>=(const Fixed& fix) {
+	bool res = this->_fixedPoints >= fix._fixedPoints;
+	return (res);
+}
+
+bool Fixed::operator<=(const Fixed& fix) {
+	bool res = this->_fixedPoints <= fix._fixedPoints;
+	return (res);
+}
+
+bool Fixed::operator==(const Fixed& fix) {
+	bool res = this->_fixedPoints == fix._fixedPoints;
+	return (res);
+}
+
+bool Fixed::operator!=(const Fixed& fix) {
+	bool res = this->_fixedPoints != fix._fixedPoints;
+	return (res);
+}
+
 // global overload
 
 std::ostream& operator<<(std::ostream& out, const Fixed& fix) {
-	out << fix.toFloat();
-	return (out);
-}
-
-std::ostream& operator>(std::ostream& out, const Fixed& fix) {
-	out << fix.toFloat();
-	return (out);
-}
-
-std::ostream& operator<(std::ostream& out, const Fixed& fix) {
-	out << fix.toFloat();
-	return (out);
-}
-
-std::ostream& operator>=(std::ostream& out, const Fixed& fix) {
-	out << fix.toFloat();
-	return (out);
-}
-
-std::ostream& operator<=(std::ostream& out, const Fixed& fix) {
-	out << fix.toFloat();
-	return (out);
-}
-
-std::ostream& operator==(std::ostream& out, const Fixed& fix) {
-	out << fix.toFloat();
-	return (out);
-}
-
-std::ostream& operator!=(std::ostream& out, const Fixed& fix) {
 	out << fix.toFloat();
 	return (out);
 }

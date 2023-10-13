@@ -6,12 +6,11 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 11:22:19 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/10/12 14:09:57 by vpoirot          ###   ########.fr       */
+/*   Updated: 2023/10/13 10:30:24 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-
 #include <iostream>
 
 int main( void ) {
