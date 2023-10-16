@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 11:23:25 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/10/13 13:45:07 by vpoirot          ###   ########.fr       */
+/*   Updated: 2023/10/16 14:40:25 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,25 +21,36 @@
 			int	_fixedPoints;
 			static const int	_fragBits;
 		public :
+			// constructor | destructor
 			Fixed(void);
 			Fixed(const Fixed& fix);
 			Fixed(const int number);
 			Fixed(const float number);
-			Fixed& operator=(const Fixed& fix);
-			Fixed& operator+(const Fixed& fix);
-			Fixed& operator-(const Fixed& fix);
-			Fixed& operator*(const Fixed& fix);
-			Fixed& operator/(const Fixed& fix);
+			~Fixed(void);
+
+			// overload operator
+			float operator+(const Fixed& fix);
+			float operator-(const Fixed& fix);
+			float operator*(const Fixed& fix);
+			float operator/(const Fixed& fix);
+
 			bool operator>(const Fixed& fix);
 			bool operator<(const Fixed& fix);
 			bool operator>=(const Fixed& fix);
 			bool operator<=(const Fixed& fix);
 			bool operator==(const Fixed& fix);
 			bool operator!=(const Fixed& fix);
+
 			Fixed& operator++();
 			Fixed operator++(int);
-			~Fixed(void);
-			Fixed& max(const Fixed& a, const Fixed& b);
+			Fixed& operator--();
+			Fixed operator--(int);
+
+			// functions
+			static const Fixed& max(const Fixed& a, const Fixed& b);
+			static Fixed& max(Fixed& a, Fixed& b);
+			static const Fixed& min(const Fixed& a, const Fixed& b);
+			static Fixed& min(Fixed& a, Fixed& b);
 			int getRawBits( void ) const;
 			void setRawBits( int const raw );
 			float toFloat( void ) const;

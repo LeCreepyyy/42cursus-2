@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 11:24:53 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/10/13 13:57:14 by vpoirot          ###   ########.fr       */
+/*   Updated: 2023/10/16 14:51:47 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,48 @@
 const int	Fixed::_fragBits = 8;
 
 Fixed::Fixed(void) : _fixedPoints(0) {
-	std::cout << "Default constructor called" << std::endl;
+	;
 }
 
 Fixed::Fixed(const Fixed& fix) : _fixedPoints(fix._fixedPoints) {
-	std::cout << "Copy constructor called" << std::endl;
+	;
 }
 
 Fixed::Fixed(const int number) {
-	std::cout << "Int constructor called" << std::endl;
 	this->_fixedPoints = number << this->_fragBits;
 }
 
 Fixed::Fixed(const float number) {
-	std::cout << "Float constructor called" << std::endl;
 	this->_fixedPoints = static_cast<int>(number * (1 << this->_fragBits) + 0.5);
 }
 
 
 Fixed::~Fixed(void) {
-	std::cout << "Destructor called" << std::endl;
 	return;
+}
+
+Fixed& Fixed::max(Fixed& a, Fixed& b) {
+	if (a.toFloat() > b.toFloat())
+		return (a);
+	return (b);
+}
+
+const Fixed& Fixed::max(const Fixed& a, const Fixed& b) {
+	if (a.toFloat() > b.toFloat())
+		return (a);
+	return (b);
+}
+
+Fixed& Fixed::min(Fixed& a, Fixed& b) {
+	if (a.toFloat() < b.toFloat())
+		return (a);
+	return (b);
+}
+
+const Fixed& Fixed::min(const Fixed& a, const Fixed& b) {
+	if (a.toFloat() < b.toFloat())
+		return (a);
+	return (b);
 }
 
 int	Fixed::getRawBits( void ) const {
@@ -56,29 +77,24 @@ int Fixed::toInt( void ) const {
 
 // overload operator
 
-Fixed&	Fixed::operator=(const Fixed& fix) {
-	this->_fixedPoints = fix.getRawBits();
-	return (*this);
+float Fixed::operator+(const Fixed& fix) {
+	float res = this->_fixedPoints + fix.getRawBits();
+	return (res);
 }
 
-Fixed& Fixed::operator+(const Fixed& fix) {
-	this->_fixedPoints = fix.getRawBits();
-	return (*this);
+float Fixed::operator-(const Fixed& fix) {
+	float res = this->_fixedPoints - fix.getRawBits();
+	return (res);
 }
 
-Fixed& Fixed::operator-(const Fixed& fix) {
-	this->_fixedPoints = fix.getRawBits();
-	return (*this);
+float Fixed::operator*(const Fixed& fix) {
+	float res = this->_fixedPoints * fix.getRawBits();
+	return (res);
 }
 
-Fixed& Fixed::operator*(const Fixed& fix) {
-	this->_fixedPoints = fix.getRawBits();
-	return (*this);
-}
-
-Fixed& Fixed::operator/(const Fixed& fix) {
-	this->_fixedPoints = fix.getRawBits();
-	return (*this);
+float Fixed::operator/(const Fixed& fix) {
+	float res = this->_fixedPoints / fix.getRawBits();
+	return (res);
 }
 
 Fixed& Fixed::operator++() {
@@ -89,6 +105,17 @@ Fixed& Fixed::operator++() {
 Fixed Fixed::operator++(int) {
 	Fixed tmp(*this);
 	++_fixedPoints;
+	return (tmp);
+}
+
+Fixed& Fixed::operator--() {
+	--_fixedPoints;
+	return (*this);
+}
+
+Fixed Fixed::operator--(int) {
+	Fixed tmp(*this);
+	--_fixedPoints;
 	return (tmp);
 }
 
