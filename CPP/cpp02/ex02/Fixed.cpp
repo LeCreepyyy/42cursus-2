@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 11:24:53 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/10/16 14:51:47 by vpoirot          ###   ########.fr       */
+/*   Updated: 2023/10/16 14:57:28 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,22 +78,22 @@ int Fixed::toInt( void ) const {
 // overload operator
 
 float Fixed::operator+(const Fixed& fix) {
-	float res = this->_fixedPoints + fix.getRawBits();
+	float res = this->toFloat() + fix.toFloat();
 	return (res);
 }
 
 float Fixed::operator-(const Fixed& fix) {
-	float res = this->_fixedPoints - fix.getRawBits();
+	float res = this->toFloat() - fix.toFloat();
 	return (res);
 }
 
 float Fixed::operator*(const Fixed& fix) {
-	float res = this->_fixedPoints * fix.getRawBits();
+	float res = this->toFloat() * fix.toFloat();
 	return (res);
 }
 
 float Fixed::operator/(const Fixed& fix) {
-	float res = this->_fixedPoints / fix.getRawBits();
+	float res = this->toFloat() / fix.toFloat();
 	return (res);
 }
 
@@ -120,32 +120,32 @@ Fixed Fixed::operator--(int) {
 }
 
 bool Fixed::operator>(const Fixed& fix) {
-	bool res = this->_fixedPoints > fix._fixedPoints;
+	bool res = this->toFloat() > fix.toFloat();
 	return (res);
 }
 
 bool Fixed::operator<(const Fixed& fix) {
-	bool res = this->_fixedPoints < fix._fixedPoints;
+	bool res = this->toFloat() < fix.toFloat();
 	return (res);
 }
 
 bool Fixed::operator>=(const Fixed& fix) {
-	bool res = this->_fixedPoints >= fix._fixedPoints;
+	bool res = this->toFloat() >= fix.toFloat();
 	return (res);
 }
 
 bool Fixed::operator<=(const Fixed& fix) {
-	bool res = this->_fixedPoints <= fix._fixedPoints;
+	bool res = this->toFloat() <= fix.toFloat();
 	return (res);
 }
 
 bool Fixed::operator==(const Fixed& fix) {
-	bool res = this->_fixedPoints == fix._fixedPoints;
+	bool res = this->toFloat() == fix.toFloat();
 	return (res);
 }
 
 bool Fixed::operator!=(const Fixed& fix) {
-	bool res = this->_fixedPoints != fix._fixedPoints;
+	bool res = this->toFloat() != fix.toFloat();
 	return (res);
 }
 
