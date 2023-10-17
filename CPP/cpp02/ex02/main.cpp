@@ -6,7 +6,7 @@
 /*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 11:22:19 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/10/16 20:36:56 by creepy           ###   ########.fr       */
+/*   Updated: 2023/10/17 10:31:57 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ int main( void ) {
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
 	std::cout << Fixed::max( a, b ) << std::endl;
+	std::cout << Fixed::min(a,b) << std::endl;
 	return 0;
 }

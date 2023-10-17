@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 20:45:10 by creepy            #+#    #+#             */
-/*   Updated: 2023/10/16 23:48:02 by creepy           ###   ########.fr       */
+/*   Updated: 2023/10/17 10:38:58 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,10 @@ void ClapTrap::attack(const std::string& target) {
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {
+    if (this->getHitPoints() <= 0) {
+        std::cout << "nothing happens..." << std::endl;
+        return;
+    }
     std::cout << this->getName() << " taking " << amount << " of damage" << std::endl;
     this->setHitPoints(this->getHitPoints() - amount);
 }

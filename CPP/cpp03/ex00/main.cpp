@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 20:44:24 by creepy            #+#    #+#             */
-/*   Updated: 2023/10/16 23:46:15 by creepy           ###   ########.fr       */
+/*   Updated: 2023/10/17 10:37:35 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int main(void) {
     robot2.takeDamage(10);
     robot2.attack("other robot");
     robot2.beRepaired(3);
+	std::cout << "Child hit them carcass" << std::endl;
+	robot2.takeDamage(1);
     std::cout << "Hit Points : " << robot2.getHitPoints() << " | Energy Points : " << robot2.getEnergyPoints() << std::endl;
     return (0);
 }
