@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/17 11:09:14 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/10/19 09:21:02 by vpoirot          ###   ########.fr       */
+/*   Created: 2023/10/16 20:44:24 by creepy            #+#    #+#             */
+/*   Updated: 2023/10/19 11:40:59 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-# include <iostream>
-# include <string>
-# include "ClapTrap.hpp"
-
-	class ScavTrap : public ClapTrap {
-		public :
-			ScavTrap(void);
-			ScavTrap(std::string name);
-			~ScavTrap(void);
-			void attack(std::string target);
-			void guardGate();
-	};
-
-#endif
+int main(void) {
+    FragTrap fragy("fragy");
+    fragy.attack("cat");
+    std::cout << "But this cat are robots eater !!" << std::endl;
+    fragy.takeDamage(40);
+    std::cout << "3 minute later, Fragy are hidden with you" << std::endl;
+    fragy.highFivesGuys();
+    return (0);
+}

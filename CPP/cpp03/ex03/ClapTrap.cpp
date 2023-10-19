@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 20:45:10 by creepy            #+#    #+#             */
-/*   Updated: 2023/10/19 11:33:13 by vpoirot          ###   ########.fr       */
+/*   Updated: 2023/10/18 09:53:05 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void ClapTrap::setEnergyPoints(int amount) {
 
 void ClapTrap::attack(const std::string& target) {
     if (this->_hitPoints <= 0) {
-        std::cout << "Impossible action because he is destroyed !" << std::endl;
+        std::cout << "Impossible action because he are destroyed !" << std::endl;
         return;
     }
     std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage !" << std::endl;
