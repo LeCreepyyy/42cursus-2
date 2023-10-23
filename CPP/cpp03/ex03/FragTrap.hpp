@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 09:47:13 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/10/19 09:51:25 by vpoirot          ###   ########.fr       */
+/*   Updated: 2023/10/20 13:10:57 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "ClapTrap.hpp"
 
-	class FragTrap : public ClapTrap {
+	class FragTrap : virtual public ClapTrap {
 		public :
 			FragTrap(void);
 			FragTrap(std::string name);
