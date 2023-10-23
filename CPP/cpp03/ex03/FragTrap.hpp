@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 09:47:13 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/10/20 13:10:57 by vpoirot          ###   ########.fr       */
+/*   Updated: 2023/10/23 13:59:21 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@
 		public :
 			FragTrap(void);
 			FragTrap(std::string name);
+			FragTrap(const FragTrap& copy);
 			~FragTrap(void);
+			FragTrap& operator=(const FragTrap& cls);
 			void highFivesGuys(void);
 	};
 

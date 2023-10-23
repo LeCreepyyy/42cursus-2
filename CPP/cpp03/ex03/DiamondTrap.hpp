@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 11:38:40 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/10/20 13:23:01 by vpoirot          ###   ########.fr       */
+/*   Updated: 2023/10/23 14:40:18 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,14 @@
 # include "ScavTrap.hpp"
 # include "ClapTrap.hpp"
 
-	class DiamondTrap : virtual public FragTrap, virtual public ScavTrap, virtual public ClapTrap {
+	class DiamondTrap : public ScavTrap, public FragTrap {
 		private :
 			std::string _name;
 		public :
 			DiamondTrap(void);
 			DiamondTrap(std::string name);
 			~DiamondTrap(void);
+			DiamondTrap& operator=(const DiamondTrap &src);
 			void attack(std::string target);
 			void whoAmI();
 	};

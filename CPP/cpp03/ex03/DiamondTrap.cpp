@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 11:38:38 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/10/20 14:19:14 by vpoirot          ###   ########.fr       */
+/*   Updated: 2023/10/23 13:26:08 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,20 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name") {
 	this->_hitPoints = FragTrap::_hitPoints;
 	this->_energyPoints = ScavTrap::_energyPoints;
 	this->_attackDamage = FragTrap::_attackDamage;
-	std::cout << "test[" << this->_attackDamage << "]" << std::endl;
+	std::cout << "AD fragTrap[" << FragTrap::_attackDamage << "]" << std::endl;
 }
 
 DiamondTrap::~DiamondTrap(void) {
 	std::cout << "DiamondTrap destructor called" << std::endl;
+}
+
+DiamondTrap& DiamondTrap::operator=(const DiamondTrap &classTrap) {
+	std::cout << "DiamondTrap copy assignation called" << std::endl;
+	this->_name = classTrap._name + "_clap_name";
+	this->_attackDamage = classTrap._attackDamage;
+	this->_energyPoints = classTrap._energyPoints;
+	this->_hitPoints = classTrap._hitPoints;
+	return (*this);
 }
 
 void DiamondTrap::attack(std::string target) {

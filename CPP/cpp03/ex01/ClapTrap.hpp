@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 20:45:16 by creepy            #+#    #+#             */
-/*   Updated: 2023/10/17 14:33:36 by vpoirot          ###   ########.fr       */
+/*   Updated: 2023/10/23 14:03:48 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@
             // Constructor & Destructor
             ClapTrap(void);
             ClapTrap(std::string _name);
+            ClapTrap(const ClapTrap& name);
             ~ClapTrap(void);
+            ClapTrap& operator=(const ClapTrap& copy);
 
             // get
             std::string getName(void);

@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 09:47:10 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/10/19 10:31:38 by vpoirot          ###   ########.fr       */
+/*   Updated: 2023/10/23 14:05:04 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,21 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name) {
 	this->_energyPoints = 100;;
 }
 
+FragTrap::FragTrap(const FragTrap& copy) : ClapTrap(copy) {
+	std::cout << "FragTrap copy constructor called" << std::endl;
+}
+
 FragTrap::~FragTrap(void) {
 	std::cout << "FragTrap destructor called" << std::endl;
+}
+
+FragTrap& FragTrap::operator=(const FragTrap& cls) {
+	std::cout << "FragTrap copy assignation called" << std::endl;
+	this->_name = cls._name;
+	this->_attackDamage = cls._attackDamage;
+	this->_energyPoints = cls._energyPoints;
+	this->_hitPoints = cls._hitPoints;
+	return (*this);
 }
 
 void	FragTrap::highFivesGuys(void) {
