@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
+/*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 11:38:38 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/10/24 10:16:00 by vpoirot          ###   ########.fr       */
+/*   Updated: 2023/10/24 19:43:40 by creepy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name") {
 	this->_energyPoints = ScavTrap::_energyPoints;
 	this->_attackDamage = FragTrap::_attackDamage;
 	std::cout << "AD ScavTrap[" << ScavTrap::_energyPoints << "]" << std::endl;
+}
+
+DiamondTrap::DiamondTrap(const DiamondTrap& copy) : ClapTrap(copy), ScavTrap(copy), FragTrap(copy) {
+	std::cout << "DiamondTrap copy constructor called" << std::endl;
 }
 
 DiamondTrap::~DiamondTrap(void) {
