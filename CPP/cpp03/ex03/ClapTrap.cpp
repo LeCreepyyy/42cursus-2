@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 20:45:10 by creepy            #+#    #+#             */
-/*   Updated: 2023/10/23 14:16:02 by vpoirot          ###   ########.fr       */
+/*   Updated: 2023/10/25 10:38:42 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,6 @@ int ClapTrap::getEnergyPoints(void) {
 
 int ClapTrap::getAttackDamage(void) {
     return (this->_attackDamage);
-}
-
-void ClapTrap::setHitPoints(int amount) {
-    this->_hitPoints = amount;
-}
-
-void ClapTrap::setEnergyPoints(int amount) {
-    this->_energyPoints = amount;
 }
 
 void ClapTrap::attack(const std::string& target) {

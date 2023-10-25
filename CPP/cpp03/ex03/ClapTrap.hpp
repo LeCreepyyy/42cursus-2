@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 20:45:16 by creepy            #+#    #+#             */
-/*   Updated: 2023/10/23 14:03:48 by vpoirot          ###   ########.fr       */
+/*   Updated: 2023/10/25 10:38:35 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,7 @@
             // get
             std::string getName(void);
             int     getHitPoints(void);
-            void    setHitPoints(int amount);
             int     getEnergyPoints(void);
-            void    setEnergyPoints(int amount);
             int     getAttackDamage(void);
 
             // function

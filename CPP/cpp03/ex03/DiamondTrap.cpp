@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 11:38:38 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/10/24 19:43:40 by creepy           ###   ########.fr       */
+/*   Updated: 2023/10/25 10:42:29 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,18 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap &classTrap) {
 
 void DiamondTrap::attack(std::string target) {
 	ScavTrap::attack(target);
+}
+
+int	DiamondTrap::getHitPoints(void) {
+	return (this->_hitPoints);
+}
+
+int	DiamondTrap::getEnergyPoints(void) {
+	return (this->_energyPoints);
+}
+
+int DiamondTrap::getAttackDamage(void) {
+	return (this->_attackDamage);
 }
 
 void DiamondTrap::whoAmI(void) {

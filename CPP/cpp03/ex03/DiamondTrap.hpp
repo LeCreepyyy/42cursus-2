@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 11:38:40 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/10/24 19:36:37 by creepy           ###   ########.fr       */
+/*   Updated: 2023/10/25 10:40:06 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@
 			virtual ~DiamondTrap(void);
 			DiamondTrap& operator=(const DiamondTrap &src);
 			void attack(std::string target);
+            int     getHitPoints(void);
+            int     getEnergyPoints(void);
+            int     getAttackDamage(void);
 			void whoAmI();
 	};
 
