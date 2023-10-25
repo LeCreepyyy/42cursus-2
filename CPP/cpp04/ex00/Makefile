@@ -6,7 +6,7 @@
 #    By: creepy <creepy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/24 19:54:14 by creepy            #+#    #+#              #
-#    Updated: 2023/10/25 01:43:26 by creepy           ###   ########.fr        #
+#    Updated: 2023/10/25 01:49:50 by creepy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,8 @@ SRCS        :=      cat.cpp \
                           dog.cpp \
                           main.cpp \
                           animal.cpp \
+						  WrongAnimal.cpp \
+						  WrongCat.cpp \
                           
 OBJS        := ${SRCS:.cpp=.o}
 
