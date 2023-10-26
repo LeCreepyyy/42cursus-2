@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 19:55:23 by creepy            #+#    #+#             */
-/*   Updated: 2023/10/25 01:35:35 by creepy           ###   ########.fr       */
+/*   Updated: 2023/10/26 15:39:30 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <string>
 # include <iostream>
+# include "Brain.hpp"
 
     class Animal {
         protected :

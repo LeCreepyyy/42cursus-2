@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 19:52:36 by creepy            #+#    #+#             */
-/*   Updated: 2023/10/25 02:13:48 by creepy           ###   ########.fr       */
+/*   Updated: 2023/10/26 15:46:16 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,13 @@
 
 int main(void) {
     const Animal* meta = new Animal();
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
+    const Animal* dog = new Dog();
+    const Animal* cat = new Cat();
     meta->makeSound();
-    i->makeSound();
-    j->makeSound();
+    cat->makeSound();
+    dog->makeSound();
     delete meta;
-    delete i;
-    delete j;
-    const WrongAnimal* wrongMeta = new WrongAnimal();
-    const WrongAnimal* wrongCat = new WrongCat();
-    wrongMeta->makeSound();
-    wrongCat->makeSound();
-    delete wrongMeta;
-    delete wrongCat;
+    delete cat;
+    delete dog;
     return 0;
 }

@@ -3,25 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 00:39:33 by creepy            #+#    #+#             */
-/*   Updated: 2023/10/25 01:41:48 by creepy           ###   ########.fr       */
+/*   Updated: 2023/10/26 15:46:49 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cat.hpp"
 
-Cat::Cat(void) : Animal("cat") {
+Cat::Cat(void) : Animal("cat"), _catBrain(new Brain()) {
     std::cout << "Cat default constructor called" << std::endl;
 }
 
-Cat::Cat(const Cat& copy) : Animal() {
+Cat::Cat(const Cat& copy) : Animal(), _catBrain(new Brain()) {
     std::cout << "Cat copy constructor called" << std::endl;
     *this = copy;
 }
 
 Cat::~Cat(void) {
+    delete _catBrain;
     std::cout << "Cat destructor called" << std::endl;
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 00:40:18 by creepy            #+#    #+#             */
-/*   Updated: 2023/10/25 01:29:19 by creepy           ###   ########.fr       */
+/*   Updated: 2023/10/26 15:43:03 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
     class Cat : public Animal {
         private :
-            ;
+            Brain *_catBrain;
         public :
             Cat(void);
             Cat(const Cat& copy);
