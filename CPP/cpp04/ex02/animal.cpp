@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 19:59:30 by creepy            #+#    #+#             */
-/*   Updated: 2023/10/25 01:44:58 by creepy           ###   ########.fr       */
+/*   Updated: 2023/11/01 14:52:42 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,9 @@ std::string Animal::getType(void)const {
 
 void    Animal::makeSound(void)const {
     std::cout << "no sound maked... (cricket sound)" << std::endl;
+}
+
+Animal& Animal::getInstance(void) {
+    static Animal instance;
+    return (instance);
 }

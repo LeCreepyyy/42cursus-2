@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 19:55:23 by creepy            #+#    #+#             */
-/*   Updated: 2023/10/26 15:39:30 by vpoirot          ###   ########.fr       */
+/*   Updated: 2023/11/01 14:50:51 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,11 @@
     class Animal {
         protected :
             std::string _type;
-        public :
             Animal(void);
             Animal(std::string type);
             Animal(const Animal& copy);
+        public :
+            static Animal&  getInstance(void);
             Animal& operator=(const Animal& cls);
             virtual ~Animal(void);
             std::string getType(void)const;
