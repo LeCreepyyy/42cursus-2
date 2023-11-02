@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   animal.hpp                                         :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/24 19:55:23 by creepy            #+#    #+#             */
-/*   Updated: 2023/11/02 14:29:49 by vpoirot          ###   ########.fr       */
+/*   Created: 2023/11/02 14:41:01 by vpoirot           #+#    #+#             */
+/*   Updated: 2023/11/02 15:23:20 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_H
-# define ANIMAL_H
+#ifndef AMATERIA_HPP
+# define AMATERIA_HPP
 
-# include <string>
 # include <iostream>
-# include "Brain.hpp"
+# include <string>
 
-    class Animal {
+    class AMateria {
         protected :
             std::string _type;
         public :
-            Animal(void);
-            Animal(std::string type);
-            Animal(const Animal& copy);
-            static Animal&  getInstance(void);
-            Animal& operator=(const Animal& cls);
-            virtual ~Animal(void);
-            std::string getType(void)const;
-            virtual void makeSound(void)const = 0;
+            AMateria(void);
+            AMateria(std::string& type);
+            AMateria(const AMateria& copy);
+            AMateria& operator=(const AMateria& cls);
+            virtual ~AMateria(void);
+
+            std::string const& getType(void) const;
+            virtual AMateria* clone() const = 0;
+            //virtual void use(ICharacter& target);
     };
 
 #endif
