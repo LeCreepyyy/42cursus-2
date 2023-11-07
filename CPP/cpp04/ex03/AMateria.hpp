@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
+/*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:41:01 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/11/02 15:23:20 by vpoirot          ###   ########.fr       */
+/*   Updated: 2023/11/07 01:24:38 by creepy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 
 # include <iostream>
 # include <string>
+# include "Ice.hpp"
+# include "Cure.hpp"
+# include "Character.hpp"
+# include "ICharacter.hpp"
+# include "IMateriaSource.hpp"
 
     class AMateria {
         protected :
@@ -28,7 +33,7 @@
 
             std::string const& getType(void) const;
             virtual AMateria* clone() const = 0;
-            //virtual void use(ICharacter& target);
+            virtual void use(ICharacter& target);
     };
 
 #endif

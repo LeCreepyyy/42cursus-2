@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
+/*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:41:03 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/11/02 15:20:29 by vpoirot          ###   ########.fr       */
+/*   Updated: 2023/11/06 23:40:28 by creepy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,8 @@ AMateria* AMateria::clone(void)const {
     AMateria* clone;
     clone->_type = this->_type;
     return (clone);
+}
+
+void    AMateria::use(ICharacter& target) {
+    std::cout << "AMateria use " << target.getName() << std::endl;
 }

@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.hpp                                            :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 14:42:54 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/11/06 23:43:44 by creepy           ###   ########.fr       */
+/*   Updated: 2023/11/06 23:48:31 by creepy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICE_HPP
-# define ICE_HPP
+#ifndef CURE_HPP
+# define CURE_HPP
 
 # include "AMateria.hpp"
 
-    class Ice {
+    class Cure {
         private :
             std::string _type;
         public :
-            Ice(void);
-            Ice(std::string type);
-            Ice(const Ice& copy);
-            virtual ~Ice(void);
-            Ice& operator=(const Ice& cls);
+            Cure(void);
+            Cure(std::string type);
+            Cure(const Cure& copy);
+            virtual ~Cure(void);
+            Cure& operator=(const Cure& cls);
             std::string& getType(void);
-            Ice* clone(void);
+            Cure* clone(void);
             void use(ICharacter& target);
     };
 
