@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 14:42:54 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/11/06 23:43:44 by creepy           ###   ########.fr       */
+/*   Updated: 2023/11/07 15:33:21 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
             virtual ~Ice(void);
             Ice& operator=(const Ice& cls);
             std::string& getType(void);
-            Ice* clone(void);
+            Ice* clone(void) const;
             void use(ICharacter& target);
     };
 

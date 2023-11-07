@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 14:42:51 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/11/06 23:54:26 by creepy           ###   ########.fr       */
+/*   Updated: 2023/11/07 15:34:22 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ Ice::~Ice(void) {
 }
 
 Ice& Ice::operator=(const Ice& cls) {
-    *this = cls;
+    *this = *cls.clone();
+    std::cout << "Ice copy assignation called" << std::endl;
     return (*this);
 }
 
@@ -38,11 +39,11 @@ std::string& Ice::getType(void) {
     return (this->_type);
 }
 
-Ice* Ice::clone(void) {
+Ice* Ice::clone(void) const {
     Ice* clone = new Ice;
     return (clone);
 }
 
-void Ice::use(ICharater& target) {
+void Ice::use(ICharacter& target) {
     std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }

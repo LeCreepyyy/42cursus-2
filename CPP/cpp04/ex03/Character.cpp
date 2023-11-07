@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 00:18:51 by creepy            #+#    #+#             */
-/*   Updated: 2023/11/07 01:12:38 by creepy           ###   ########.fr       */
+/*   Updated: 2023/11/07 15:44:10 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ Character::Character(const Character& copy) {
 }
 
 Character& Character::operator=(const Character& cls) {
-    *this = cls;
+    Character* clone = new Character;
     std::cout << "Character copy assignation called" << std::endl;
-    return (*this);
+    return (*clone);
 }
 
 Character::~Character(void) {

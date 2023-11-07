@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:41:03 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/11/06 23:40:28 by creepy           ###   ########.fr       */
+/*   Updated: 2023/11/07 15:41:33 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ AMateria::AMateria(const AMateria& copy) {
 
 AMateria& AMateria::operator=(const AMateria& cls) {
     *this = cls;
+    std::cout << "AMateria copy assignation called" << std::endl;
     return (*this);
 }
 
