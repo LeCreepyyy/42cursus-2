@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
+/*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 14:42:54 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/11/07 15:33:21 by vpoirot          ###   ########.fr       */
+/*   Updated: 2023/11/07 19:02:38 by creepy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "AMateria.hpp"
 
-    class Ice {
+    class Ice : public AMateria {
         private :
             std::string _type;
         public :

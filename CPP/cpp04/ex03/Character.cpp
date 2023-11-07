@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
+/*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 00:18:51 by creepy            #+#    #+#             */
-/*   Updated: 2023/11/07 15:44:10 by vpoirot          ###   ########.fr       */
+/*   Updated: 2023/11/07 18:34:02 by creepy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,18 @@ Character::Character(const Character& copy) {
 }
 
 Character& Character::operator=(const Character& cls) {
-    Character* clone = new Character;
     std::cout << "Character copy assignation called" << std::endl;
-    return (*clone);
+    for (int i = 0; i < 4; ++i) {
+        if (this->_inv[i])
+            delete this->_inv[i];
+        if (cls._inv[i])
+            this->_inv[i] = cls._inv[i];
+    }
+    return (*this);
 }
 
 Character::~Character(void) {
+    std::cout << "Character destructor called" << std::endl;
     for (int i = 0; i < 4; ++i)
         if (this->_inv[i])
             delete this->_inv[i];

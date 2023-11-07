@@ -6,7 +6,7 @@
 /*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 23:56:14 by creepy            #+#    #+#             */
-/*   Updated: 2023/11/07 01:13:40 by creepy           ###   ########.fr       */
+/*   Updated: 2023/11/07 19:01:30 by creepy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "AMateria.hpp"
 
-    class Character {
+    class Character : public ICharacter {
         private :
             const std::string _name;
             AMateria* _inv[4];
