@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
+/*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 14:08:25 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/11/08 14:22:53 by vpoirot          ###   ########.fr       */
+/*   Updated: 2023/11/08 21:03:54 by creepy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
             MateriaSource(void);
             MateriaSource(const MateriaSource& copy);
             MateriaSource& operator=(const MateriaSource& cls);
-            virtual ~MateriaSource(void);
+            ~MateriaSource(void);
             void    learnMateria(AMateria* m);
             AMateria* createMateria(std::string const& type);
     };

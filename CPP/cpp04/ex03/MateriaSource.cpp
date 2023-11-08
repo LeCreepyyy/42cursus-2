@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
+/*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 18:17:45 by creepy            #+#    #+#             */
-/*   Updated: 2023/11/08 15:11:26 by vpoirot          ###   ########.fr       */
+/*   Updated: 2023/11/08 22:07:36 by creepy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 MateriaSource::MateriaSource(void) {
     std::cout << "MateriaSource default constructor called" << std::endl;
-    for (int i = 0; i < 4; ++i) {
+    for (int i = 0; i < 4; i++) {
         this->_stock[i] = 0;
     }
 }
 
 MateriaSource::MateriaSource(const MateriaSource& copy) {
     std::cout << "MateriaSource copy constructor called" << std::endl;
-    for (int i = 0; i < 4; ++i) {
+    for (int i = 0; i < 4; i++) {
         if (copy._stock[i])
-            this->_stock[i] = copy._stock[i];
+            this->_stock[i] = copy._stock[i]->clone();
     }
 }
 
@@ -33,7 +33,7 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& cls) {
         if (this->_stock[i])
             delete this->_stock[i];
         if (cls._stock[i])
-            this->_stock[i] = cls._stock[i];
+            this->_stock[i] = cls._stock[i]->clone();
     }
     return (*this);
 }
@@ -62,7 +62,7 @@ AMateria* MateriaSource::createMateria(std::string const& type) {
     int i = 0;
     while (this->_stock[i] && (this->_stock[i])->getType() != type && i < 4)
         i++;
-    if (i == 4) {
+    if (i == 4 || !this->_stock[i]) {
         std::cout << "Materia can't be created" << std::endl;
         return (NULL);
     }

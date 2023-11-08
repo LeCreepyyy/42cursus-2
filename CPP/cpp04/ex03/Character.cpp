@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
+/*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 00:18:51 by creepy            #+#    #+#             */
-/*   Updated: 2023/11/08 15:08:16 by vpoirot          ###   ########.fr       */
+/*   Updated: 2023/11/08 21:40:03 by creepy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,21 @@
 
 Character::Character(void) : _name("Anyone") {
     std::cout << "Character default constructor called" << std::endl;
-    for (int i = 0; i < 4; ++i)
-        this->_inv[i]->clone();
+    for (int i = 0; i < 4; i++)
+        this->_inv[i] = 0;
 }
 
 Character::Character(std::string name) : _name(name) {
     std::cout << "Character constructor called" << std::endl;
-    for (int i = 0; i < 4; ++i)
-        this->_inv[i]->clone();
+    for (int i = 0; i < 4; i++)
+        this->_inv[i] = 0;
 }
 
-Character::Character(const Character& copy) {
-    *this = copy;
+Character::Character(const Character& copy) : _name(copy.getName()) {
     std::cout << "Character copy constructor called" << std::endl;
+    for (int i = 0; i < 4; i++)
+        if (copy._inv[i])
+            this->_inv[i] = copy._inv[i]->clone();
 }
 
 Character& Character::operator=(const Character& cls) {
@@ -35,7 +37,7 @@ Character& Character::operator=(const Character& cls) {
         if (this->_inv[i])
             delete this->_inv[i];
         if (cls._inv[i])
-            this->_inv[i] = cls._inv[i];
+            this->_inv[i] = cls._inv[i]->clone();
     }
     return (*this);
 }
@@ -51,32 +53,38 @@ std::string const& Character::getName() const {
     return(this->_name);
 }
 
-AMateria* Character::getInvSlot(int idx) {
-    return (this->_inv[idx]);
-}
-
 void    Character::equip(AMateria* m) {
     int i = 0;
+    if (!m) {
+        std::cout << "Given't materia to equip" << std::endl;
+        return ;
+    }
     while (this->_inv[i] && i < 4)
-        ++i;
+        i++;
     if (i == 4) {
         std::cout << this->_name << " : Inventory full" << std::endl;
         return;
     }
-    else
-        this->_inv[i] = m;
+    this->_inv[i] = m;
     std::cout << this->_name << " : take " << m->getType() << std::endl;
 }
 
 void    Character::unequip(int idx) {
-    if (this->_inv[idx] == 0) {
+    if (idx < 0 || idx >= 4)
+        std::cout << "Slot is empty : " << this->_name << std::endl;
+    else if (this->_inv[idx] == 0) {
         std::cout << this->_name << " : this slot is empty" << std::endl;
+        return;
     }
     std::cout << this->_name << " : unequip " << this->_inv[idx] << std::endl;
     this->_inv[idx] = 0;
 }
 
 void Character::use(int idx, ICharacter& target) {
-    std::cout << this->_name << " : " << std::endl;
+    if (idx < 0 || idx >= 4 || !(this->_inv)[idx]) {
+        std::cout << "Index not found" << std::endl;
+        return;
+    }
+    std::cout << this->_name << " : ";
     (this->_inv[idx])->use(target);
 }

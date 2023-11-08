@@ -3,25 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
+/*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 14:42:51 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/11/08 14:33:59 by vpoirot          ###   ########.fr       */
+/*   Updated: 2023/11/08 22:08:14 by creepy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
-Ice::Ice(void) : _type("Ice") {
+Ice::Ice(void) : _type("ice") {
     std::cout << "Ice default constructor called" << std::endl;
 }
 
-Ice::Ice(std::string type) : _type(type) {
-    std::cout << "Ice constructor called" << std::endl;
-}
-
-Ice::Ice(const Ice& copy) {
-    *this = copy;
+Ice::Ice(const Ice& copy) : AMateria(copy) {
+    this->_type = copy.getType();
     std::cout << "Ice copy constructor called" << std::endl;
 }
 
@@ -35,7 +31,7 @@ Ice& Ice::operator=(const Ice& cls) {
     return (*this);
 }
 
-std::string& Ice::getType(void) {
+std::string const& Ice::getType(void) const {
     return (this->_type);
 }
 

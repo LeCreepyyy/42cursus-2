@@ -3,25 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
+/*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 14:42:51 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/11/08 15:13:01 by vpoirot          ###   ########.fr       */
+/*   Updated: 2023/11/08 22:08:22 by creepy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 
-Cure::Cure(void) : _type("Cure") {
+Cure::Cure(void) : _type("cure") {
     std::cout << "Cure default constructor called" << std::endl;
 }
 
-Cure::Cure(std::string type) : _type(type) {
-    std::cout << "Cure constructor called" << std::endl;
-}
-
-Cure::Cure(const Cure& copy) {
-    *this = copy;
+Cure::Cure(const Cure& copy) : AMateria(copy) {
+    this->_type = copy.getType();
     std::cout << "Cure copy constructor called" << std::endl;
 }
 
@@ -35,7 +31,7 @@ Cure& Cure::operator=(const Cure& cls) {
     return (*this);
 }
 
-std::string& Cure::getType(void) {
+std::string const& Cure::getType(void) const {
     return (this->_type);
 }
 
