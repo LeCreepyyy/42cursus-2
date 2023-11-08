@@ -3,28 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 23:56:14 by creepy            #+#    #+#             */
-/*   Updated: 2023/11/07 19:01:30 by creepy           ###   ########.fr       */
+/*   Updated: 2023/11/08 15:10:08 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHARACTER_HPP
 # define CHARACTER_HPP
 
-# include "AMateria.hpp"
+# include "ICharacter.hpp"
 
     class Character : public ICharacter {
         private :
             const std::string _name;
             AMateria* _inv[4];
         public :
+            using ICharacter::equip;
             Character(void);
             Character(std::string name);
             Character(const Character& copy);
             Character& operator=(const Character& cls);
-            virtual ~Character() {};
+            virtual ~Character();
             std::string const& getName() const;
             void equip(AMateria* m);
             void unequip(int idx);

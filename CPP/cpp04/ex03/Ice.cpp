@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 14:42:51 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/11/07 15:34:22 by vpoirot          ###   ########.fr       */
+/*   Updated: 2023/11/08 14:33:59 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Ice::~Ice(void) {
 }
 
 Ice& Ice::operator=(const Ice& cls) {
-    *this = *cls.clone();
+    this->_type = cls.clone()->_type;
     std::cout << "Ice copy assignation called" << std::endl;
     return (*this);
 }

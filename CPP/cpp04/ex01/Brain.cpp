@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 14:59:04 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/10/26 15:38:47 by vpoirot          ###   ########.fr       */
+/*   Updated: 2023/11/08 10:12:21 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Brain::~Brain(void) {
 }
 
 Brain& Brain::operator=(const Brain& cls) {
-    (void)cls;
+    *this->_ideas = *cls._ideas;
     std::cout << "Brain copy assignation called" << std::endl;
     return (*this);
 }

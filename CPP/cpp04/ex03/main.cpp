@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:37:09 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/11/07 19:00:08 by creepy           ###   ########.fr       */
+/*   Updated: 2023/11/08 11:23:03 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#include "lib.h"
 
 int main(void) {
     IMateriaSource* src = new MateriaSource();

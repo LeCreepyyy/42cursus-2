@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 14:42:54 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/11/07 19:02:38 by creepy           ###   ########.fr       */
+/*   Updated: 2023/11/08 15:09:16 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define ICE_HPP
 
 # include "AMateria.hpp"
+
+class ICharacter;
 
     class Ice : public AMateria {
         private :
@@ -26,7 +28,7 @@
             Ice& operator=(const Ice& cls);
             std::string& getType(void);
             Ice* clone(void) const;
-            void use(ICharacter& target);
+            virtual void use(ICharacter& target);
     };
 
 #endif

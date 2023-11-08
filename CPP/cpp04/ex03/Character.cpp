@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 00:18:51 by creepy            #+#    #+#             */
-/*   Updated: 2023/11/07 18:34:02 by creepy           ###   ########.fr       */
+/*   Updated: 2023/11/08 15:08:16 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 Character::Character(void) : _name("Anyone") {
     std::cout << "Character default constructor called" << std::endl;
     for (int i = 0; i < 4; ++i)
-        this->_inv[i];
+        this->_inv[i]->clone();
 }
 
 Character::Character(std::string name) : _name(name) {
     std::cout << "Character constructor called" << std::endl;
     for (int i = 0; i < 4; ++i)
-        this->_inv[i];
+        this->_inv[i]->clone();
 }
 
 Character::Character(const Character& copy) {

@@ -6,11 +6,12 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:41:03 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/11/07 15:41:33 by vpoirot          ###   ########.fr       */
+/*   Updated: 2023/11/08 14:30:13 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
+#include "ICharacter.hpp"
 
 AMateria::AMateria(void) : _type("defaultType") {
     std::cout << "AMateria Default Constructor called" << std::endl;
@@ -26,7 +27,7 @@ AMateria::AMateria(const AMateria& copy) {
 }
 
 AMateria& AMateria::operator=(const AMateria& cls) {
-    *this = cls;
+    this->_type = cls._type;
     std::cout << "AMateria copy assignation called" << std::endl;
     return (*this);
 }
@@ -37,12 +38,6 @@ AMateria::~AMateria(void) {
 
 std::string const& AMateria::getType(void)const {
     return (this->_type);
-}
-
-AMateria* AMateria::clone(void)const {
-    AMateria* clone;
-    clone->_type = this->_type;
-    return (clone);
 }
 
 void    AMateria::use(ICharacter& target) {

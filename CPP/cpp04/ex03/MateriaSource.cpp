@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 18:17:45 by creepy            #+#    #+#             */
-/*   Updated: 2023/11/07 18:58:05 by creepy           ###   ########.fr       */
+/*   Updated: 2023/11/08 15:11:26 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ AMateria* MateriaSource::createMateria(std::string const& type) {
         i++;
     if (i == 4) {
         std::cout << "Materia can't be created" << std::endl;
-        return;
+        return (NULL);
     }
     std::cout << type << " created" << std::endl;
     return ((this->_stock[i])->clone());

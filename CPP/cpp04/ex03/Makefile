@@ -6,13 +6,13 @@
 #    By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 13:02:38 by vpoirot           #+#    #+#              #
-#    Updated: 2023/11/07 13:03:38 by vpoirot          ###   ########.fr        #
+#    Updated: 2023/11/08 15:24:34 by vpoirot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME        := materia
 CC         := c++
-FLAGS    := -Wall -Wextra -Werror -std=c++98
+FLAGS    := -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 
 SRCS        :=      AMateria.cpp \
                           Ice.cpp \
@@ -37,7 +37,7 @@ RM		    := rm -f
 ${NAME}:	${OBJS}
 	@echo "$(GREEN)Compilation ${CLR_RMV}of ${YELLOW}$(NAME) ${CLR_RMV}..."
 	@${CC} ${FLAGS} -o ${NAME} ${OBJS}
-	echo "$(GREEN)$(NAME) created[0m ✔️"
+	@echo "$(GREEN)$(NAME) created[0m ✔️"
 
 all:		${NAME}
 
