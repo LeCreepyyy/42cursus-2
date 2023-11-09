@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 00:18:51 by creepy            #+#    #+#             */
-/*   Updated: 2023/11/08 21:40:03 by creepy           ###   ########.fr       */
+/*   Updated: 2023/11/09 13:09:40 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,10 @@ Character& Character::operator=(const Character& cls) {
 
 Character::~Character(void) {
     std::cout << "Character destructor called" << std::endl;
-    for (int i = 0; i < 4; ++i)
+    for (int i = 0; i < 4; i++) {
         if (this->_inv[i])
             delete this->_inv[i];
+    }
 }
 
 std::string const& Character::getName() const {

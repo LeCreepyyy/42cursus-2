@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:37:09 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/11/08 22:09:21 by creepy           ###   ########.fr       */
+/*   Updated: 2023/11/09 13:00:22 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ int main(void) {
     src->learnMateria(new Cure());
     std::cout << "----" << std::endl;
     AMateria* tmp;
-    tmp = src->createMateria("ice");
     tmp = src->createMateria("cure");
+    tmp = src->createMateria("ice");
     std::cout << "----" << std::endl;
     ICharacter* me = new Character("me");
     me->equip(tmp);

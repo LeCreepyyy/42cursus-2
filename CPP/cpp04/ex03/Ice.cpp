@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 14:42:51 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/11/08 22:08:14 by creepy           ###   ########.fr       */
+/*   Updated: 2023/11/09 13:07:52 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Ice::~Ice(void) {
 }
 
 Ice& Ice::operator=(const Ice& cls) {
-    this->_type = cls.clone()->_type;
+    this->_type = cls._type;
     std::cout << "Ice copy assignation called" << std::endl;
     return (*this);
 }

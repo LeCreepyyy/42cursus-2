@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 18:17:45 by creepy            #+#    #+#             */
-/*   Updated: 2023/11/08 22:07:36 by creepy           ###   ########.fr       */
+/*   Updated: 2023/11/09 11:01:29 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& cls) {
 }
 
 MateriaSource::~MateriaSource(void) {
-    std::cout << "MateriaSource destructor called";
+    std::cout << "MateriaSource destructor called" << std::endl;
     for (int i = 0; i < 4; ++i) {
         if (this->_stock[i])
             delete this->_stock[i];
