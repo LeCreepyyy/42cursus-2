@@ -6,13 +6,13 @@
 #    By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 13:02:38 by vpoirot           #+#    #+#              #
-#    Updated: 2023/11/09 13:00:53 by vpoirot          ###   ########.fr        #
+#    Updated: 2023/11/09 14:36:56 by vpoirot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME        := materia
 CC         := c++
-FLAGS    := -Wall -Wextra -Werror -std=c++98 -fsanitize=address
+FLAGS    := -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
 
 SRCS        :=      AMateria.cpp \
                           Ice.cpp \

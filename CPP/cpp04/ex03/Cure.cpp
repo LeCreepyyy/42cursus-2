@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 14:42:51 by vpoirot           #+#    #+#             */
-/*   Updated: 2023/11/09 13:09:35 by vpoirot          ###   ########.fr       */
+/*   Updated: 2023/11/09 15:10:48 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Cure::~Cure(void) {
 }
 
 Cure& Cure::operator=(const Cure& cls) {
-    this->_type = cls.clone()->_type;
+    this->_type = cls._type;
     std::cout << "Cure copy assignation called" << std::endl;
     return (*this);
 }

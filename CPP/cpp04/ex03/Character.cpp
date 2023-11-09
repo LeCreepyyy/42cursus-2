@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 00:18:51 by creepy            #+#    #+#             */
-/*   Updated: 2023/11/09 13:09:40 by vpoirot          ###   ########.fr       */
+/*   Updated: 2023/11/09 15:00:02 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,28 +24,30 @@ Character::Character(std::string name) : _name(name) {
         this->_inv[i] = 0;
 }
 
-Character::Character(const Character& copy) : _name(copy.getName()) {
+Character::Character(const Character& copy) {
     std::cout << "Character copy constructor called" << std::endl;
-    for (int i = 0; i < 4; i++)
-        if (copy._inv[i])
-            this->_inv[i] = copy._inv[i]->clone();
+    *this = copy;
 }
 
 Character& Character::operator=(const Character& cls) {
     std::cout << "Character copy assignation called" << std::endl;
+    for (int i = 0; i < 4; i++)
+        this->_inv[i] = 0;
     for (int i = 0; i < 4; ++i) {
-        if (this->_inv[i])
+        if (this->_inv[i] != 0) {
             delete this->_inv[i];
-        if (cls._inv[i])
+            this->_inv[i] = 0;
+        }
+        if (cls._inv[i] != 0)
             this->_inv[i] = cls._inv[i]->clone();
     }
     return (*this);
 }
 
 Character::~Character(void) {
-    std::cout << "Character destructor called" << std::endl;
+    std::cout << "Character destructor called" << this->getName() << std::endl;
     for (int i = 0; i < 4; i++) {
-        if (this->_inv[i])
+        if (this->_inv[i] != 0)
             delete this->_inv[i];
     }
 }
@@ -78,7 +80,10 @@ void    Character::unequip(int idx) {
         return;
     }
     std::cout << this->_name << " : unequip " << this->_inv[idx] << std::endl;
-    this->_inv[idx] = 0;
+    if (!this->_inv[idx]) {
+        delete this->_inv[idx];
+        this->_inv[idx] = 0;
+    }
 }
 
 void Character::use(int idx, ICharacter& target) {

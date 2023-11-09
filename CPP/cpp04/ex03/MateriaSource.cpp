@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 18:17:45 by creepy            #+#    #+#             */
-/*   Updated: 2023/11/09 11:01:29 by vpoirot          ###   ########.fr       */
+/*   Updated: 2023/11/09 14:34:33 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& cls) {
 
 MateriaSource::~MateriaSource(void) {
     std::cout << "MateriaSource destructor called" << std::endl;
-    for (int i = 0; i < 4; ++i) {
+    for (int i = 0; i < 4; i++) {
         if (this->_stock[i])
             delete this->_stock[i];
     }
