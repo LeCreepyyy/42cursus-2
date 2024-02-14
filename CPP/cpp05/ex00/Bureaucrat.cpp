@@ -6,13 +6,13 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 10:18:48 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/02/14 12:48:06 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/02/14 13:29:38 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(std::string name) : _grade(1) ,_name(name) {
+Bureaucrat::Bureaucrat(std::string name) : _grade(150) ,_name(name) {
     std::cout << "Constructor called" << std::endl;
 }
 
