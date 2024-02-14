@@ -3,8 +3,8 @@ NAME        := bureaucrat
 CC         := c++
 FLAGS    := -Wall -Wextra -Werror -std=c++98
 
-SRCS        :=      ex00/main.cpp \
-                		ex00/Bureaucrat.cpp \
+SRCS        :=      main.cpp \
+                		Bureaucrat.cpp \
                           
 OBJS        := ${SRCS:.cpp=.o}
 
