@@ -6,13 +6,13 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 10:18:48 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/02/14 11:16:26 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/02/14 11:51:08 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(std::string name) : _grade(1), _name(name) {
+Bureaucrat::Bureaucrat(std::string name) : _grade(1) ,_name(name) {
     std::cout << "Constructor called" << std::endl;
 }
 
@@ -24,9 +24,9 @@ void    Bureaucrat::setGrade(int newGrade) {
     if (newGrade >= 1 && newGrade <= 150)
         this->_grade = newGrade;
     else if (newGrade < 1)
-        throw Bureaucrat::GradeTooLowException();
-    else
         throw Bureaucrat::GradeTooHighException();
+    else
+        throw Bureaucrat::GradeTooLowException();
 }
 
 void    Bureaucrat::upgradeGrade(void) {
@@ -43,4 +43,9 @@ int Bureaucrat::getGrade(void) {
 
 std::string Bureaucrat::getName(void) {
     return (this->_name);
+}
+
+std::ostream& operator<<(std::ostream& out, Bureaucrat& bureaucrat) {
+    out << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << std::endl;
+    return (out);
 }
