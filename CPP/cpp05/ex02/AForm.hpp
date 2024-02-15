@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 12:41:14 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/02/14 14:34:11 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/02/15 13:02:12 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
     class Bureaucrat;
 
     class Form {
-        private :
+        protected :
             bool _sign;
             const int _gradeForSign;
             const int _gradeForExec;
@@ -29,15 +29,15 @@
             Form(void);
             Form(std::string name, int gradeForSign, int gradeForExec);
             Form(const Form& name);
-            ~Form(void);
+            virtual ~Form(void);
             Form& operator=(const Form& copy);
 
-            void beSigned(Bureaucrat& bureaucrat);
+            virtual void beSigned(Bureaucrat& bureaucrat);
 
-            bool getSign(void);
-            int getGradeSign(void);
-            int getGradeExec(void);
-            std::string getName(void);
+            virtual bool getSign(void);
+            virtual int getGradeSign(void);
+            virtual int getGradeExec(void);
+            virtual std::string getName(void);
 
             class GradeTooHighException : public std::exception
             {
@@ -50,6 +50,8 @@
                 public :
                     virtual const char* what() const throw();
             };
+
+            virtual void execute(Bureaucrat const & executor) const = 0;
     };
     std::ostream& operator<<(std::ostream& out, Form& form);
 

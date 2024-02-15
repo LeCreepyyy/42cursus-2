@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 09:48:44 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/02/14 14:34:24 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/02/15 13:06:35 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <string>
 # include <iostream>
-# include "Form.hpp"
+# include "AForm.hpp"
 
     class Form;
 
@@ -24,7 +24,7 @@
             int _grade;
             const std::string _name;
         public :
-            Bureaucrat(std::string name);
+            Bureaucrat(std::string name, int grade);
             ~Bureaucrat(void);
             int getGrade(void);
             std::string getName(void);

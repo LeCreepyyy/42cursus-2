@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 13:20:01 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/02/14 14:42:00 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/02/15 12:31:48 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
 Form::Form(void) : _sign(false) ,_gradeForSign(1) ,_gradeForExec(1) ,_name("none") {
     std::cout << "Form constructor called" << std::endl;
