@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 09:54:51 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/02/14 14:51:40 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/02/15 11:04:38 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,11 @@
 
 int main(void) {
     
-    {
-        Bureaucrat bc("Toby");
+        Bureaucrat bc("Toby", 57);
         Form form("paper", 55, 85);
 
-        try {
-            bc.setGrade(57);
-            std::cout << bc;
-            std::cout << form;
-            bc.signForm(form);
-            std::cout << form;
-        }
-        catch(const Bureaucrat::GradeTooHighException& tooHigh) {
-            std::cerr << tooHigh.what() << std::endl;
-        }
-        catch(const Bureaucrat::GradeTooLowException& tooLow) {
-            std::cerr << tooLow.what() << std::endl;
-        }
-    }
+        std::cout << bc;
+        std::cout << form;
+        bc.signForm(form);
+        std::cout << form;
 }
