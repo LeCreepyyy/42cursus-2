@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 13:20:01 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/02/15 12:31:48 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/02/19 10:50:58 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int Form::getGradeExec(void) {
     return (_gradeForExec);
 }
 
-std::string Form::getName(void) {
+std::string Form::getName(void)const {
     return (_name);
 }
 
@@ -64,6 +64,10 @@ const char* Form::GradeTooHighException::what() const throw() {
 
 const char* Form::GradeTooLowException::what() const throw() {
     return ("grade too low");
+}
+
+const char* Form::FormNotSignException::what() const throw() {
+    return ("form not sign");
 }
 
 std::ostream& operator<<(std::ostream& out, Form& form) {

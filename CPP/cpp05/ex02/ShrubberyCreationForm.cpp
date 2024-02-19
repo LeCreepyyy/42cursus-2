@@ -6,21 +6,21 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 14:03:29 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/02/15 14:18:35 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/02/19 10:38:09 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(void) : _target("none") {
+ShrubberyCreationForm::ShrubberyCreationForm(void) : Form("ShrubberyCreationForm", 145, 137) ,_target("none") {
     std::cout << "ShrubberyCreationForm constructor called" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : _target(target) {
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : Form("ShrubberyCreationForm", 145, 137) ,_target(target) {
     std::cout << "ShrubberyCreationForm constructor called" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& copy) {
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& copy) : Form("ShrubberyCreationForm", 145, 137) ,_target(copy._target) {
     *this = copy;
     std::cout << "ShrubberyCreationForm copy cinstructor called" << std::endl;
 }
@@ -39,5 +39,11 @@ std::string ShrubberyCreationForm::getTarget(void) {
 }
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
-    ;
+    if (executor.getGrade() > this->_gradeForExec)
+        throw Bureaucrat::GradeTooLowException();
+    else if (_sign == false)
+        throw Form::FormNotSignException();
+    else {
+        std::cout << "trees" << std::endl;
+    }
 }

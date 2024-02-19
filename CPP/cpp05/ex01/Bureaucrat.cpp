@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 10:18:48 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/02/15 11:04:11 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/02/19 10:52:22 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ const char* Bureaucrat::GradeTooHighException::what() const throw() {
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw() {
-    return ("/ERROR/ : Grade too high");
+    return ("/ERROR/ : Grade too low");
 }
 
 void Bureaucrat::signForm(Form& form) {

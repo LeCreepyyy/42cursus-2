@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 12:37:07 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/02/15 14:14:49 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/02/19 10:33:09 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 
         private :
             std::string _target;
-        public :
             ShrubberyCreationForm(void);
+        public :
             ShrubberyCreationForm(std::string target);
             ShrubberyCreationForm(const ShrubberyCreationForm& copy);
             ~ShrubberyCreationForm(void);

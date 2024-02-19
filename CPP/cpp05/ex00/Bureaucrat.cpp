@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 10:18:48 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/02/15 10:57:28 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/02/19 10:52:29 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ const char* Bureaucrat::GradeTooHighException::what() const throw() {
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw() {
-    return ("/ERROR/ : Grade too high");
+    return ("/ERROR/ : Grade too low");
 }
 
 std::ostream& operator<<(std::ostream& out, Bureaucrat& bureaucrat) {

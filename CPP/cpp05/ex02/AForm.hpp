@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 12:41:14 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/02/15 13:02:12 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/02/19 10:40:15 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@
             virtual bool getSign(void);
             virtual int getGradeSign(void);
             virtual int getGradeExec(void);
-            virtual std::string getName(void);
+            virtual std::string getName(void)const;
 
             class GradeTooHighException : public std::exception
             {
@@ -46,6 +46,12 @@
             };
 
             class GradeTooLowException : public std::exception
+            {
+                public :
+                    virtual const char* what() const throw();
+            };
+
+            class FormNotSignException : public std::exception
             {
                 public :
                     virtual const char* what() const throw();

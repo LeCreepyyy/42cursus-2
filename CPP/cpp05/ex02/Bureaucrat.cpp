@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 10:18:48 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/02/15 13:08:17 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/02/19 10:52:15 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void    Bureaucrat::downGrade(void) {
     }
 }
 
-int Bureaucrat::getGrade(void) {
+int Bureaucrat::getGrade(void)const {
     return (this->_grade);
 }
 
@@ -53,7 +53,7 @@ const char* Bureaucrat::GradeTooHighException::what() const throw() {
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw() {
-    return ("/ERROR/ : Grade too high");
+    return ("/ERROR/ : Grade too low");
 }
 
 void Bureaucrat::signForm(Form& form) {
@@ -87,4 +87,17 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name) {
 
 Bureaucrat::~Bureaucrat(void) {
     std::cout << "Bureaucrat destructor called" << std::endl;
+}
+
+void Bureaucrat::executeForm(Form const & form) {
+    try {
+        form.execute(*this);
+        std::cout << this->getName() << " execute " << form.getName() << std::endl;
+    }
+    catch (const Bureaucrat::GradeTooLowException& tooLow) {
+        std::cerr << tooLow.what() << " for execute form" << std::endl;
+    }
+    catch (const Form::FormNotSignException& notSign) {
+        std::cerr << notSign.what() << std::endl;
+    }
 }
