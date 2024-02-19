@@ -6,21 +6,21 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 10:46:09 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/02/19 10:46:45 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/02/19 11:30:34 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(void) : Form("PresidentialPardonForm", 145, 137) ,_target("none") {
+PresidentialPardonForm::PresidentialPardonForm(void) : Form("PresidentialPardonForm", 25, 5) ,_target("none") {
     std::cout << "PresidentialPardonForm constructor called" << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form("PresidentialPardonForm", 145, 137) ,_target(target) {
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form("PresidentialPardonForm", 25, 5) ,_target(target) {
     std::cout << "PresidentialPardonForm constructor called" << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& copy) : Form("PresidentialPardonForm", 145, 137) ,_target(copy._target) {
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& copy) : Form("PresidentialPardonForm", 25, 5) ,_target(copy._target) {
     *this = copy;
     std::cout << "PresidentialPardonForm copy cinstructor called" << std::endl;
 }
@@ -44,6 +44,6 @@ void PresidentialPardonForm::execute(Bureaucrat const & executor) const {
     else if (_sign == false)
         throw Form::FormNotSignException();
     else {
-        std::cout << "president" << std::endl;
+        std::cout << _target << ", Zaphod Beeblebrox pardoned you !" << std::endl;
     }
 }

@@ -35,6 +35,7 @@ bonus:		all
 
 clean:
 			@ ${RM} *.o */*.o */*/*.o
+			@ ${RM} formTrees_shrubbery
 			@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)objs ✔️"
 
 fclean:		clean

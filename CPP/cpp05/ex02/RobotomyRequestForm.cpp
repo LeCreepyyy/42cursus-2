@@ -6,11 +6,12 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 10:43:06 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/02/19 10:44:21 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/02/19 11:39:29 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
+#include <cstdlib>
 
 RobotomyRequestForm::RobotomyRequestForm(void) : Form("RobotomyRequestForm", 72, 45) ,_target("none") {
     std::cout << "RobotomyRequestForm constructor called" << std::endl;
@@ -44,6 +45,13 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const {
     else if (_sign == false)
         throw Form::FormNotSignException();
     else {
-        std::cout << "robot" << std::endl;
+        std::cout << "*Metalic sound*" << std::endl;
+        srand(time(0));
+        if (rand() % 2 == 1)
+            std::cout << _target << " has been robotomized." << std::endl;
+        else {
+            std::cout << "robotomy failed..." << std::endl;
+            std::cout << "*EXPLOSION*" << std::endl;
+        }
     }
 }
