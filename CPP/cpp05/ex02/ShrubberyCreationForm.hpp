@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 12:37:07 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/02/19 10:33:09 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/02/19 10:59:30 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define SHRUBBERYCREATIONFORM_HPP
 
 # include "AForm.hpp"
+# include <fstream>
 
     class ShrubberyCreationForm : public Form {
 
