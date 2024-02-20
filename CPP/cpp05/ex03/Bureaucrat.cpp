@@ -6,12 +6,12 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 10:18:48 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/02/20 11:08:30 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/02/20 11:07:22 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 void    Bureaucrat::setGrade(int newGrade) {
     if (newGrade >= 1 && newGrade <= 150)
@@ -40,7 +40,7 @@ void    Bureaucrat::downGrade(void) {
     }
 }
 
-int Bureaucrat::getGrade(void) {
+int Bureaucrat::getGrade(void)const {
     return (this->_grade);
 }
 
@@ -72,7 +72,7 @@ std::ostream& operator<<(std::ostream& out, Bureaucrat& bureaucrat) {
     return (out);
 }
 
-Bureaucrat::Bureaucrat(void) : _grade(150) ,_name("none") {
+Bureaucrat::Bureaucrat(void) : _name("none") ,_grade(150) {
     std::cout << "Default constructor called" << std::endl;
 }
 
@@ -96,4 +96,17 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& copy) {
 
 Bureaucrat::~Bureaucrat(void) {
     std::cout << "Bureaucrat destructor called" << std::endl;
+}
+
+void Bureaucrat::executeForm(Form const & form) {
+    try {
+        form.execute(*this);
+        std::cout << this->getName() << " execute " << form.getName() << std::endl;
+    }
+    catch (const Bureaucrat::GradeTooLowException& tooLow) {
+        std::cerr << tooLow.what() << " for execute form" << std::endl;
+    }
+    catch (const Form::FormNotSignException& notSign) {
+        std::cerr << notSign.what() << std::endl;
+    }
 }

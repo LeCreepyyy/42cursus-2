@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 10:18:48 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/02/19 10:52:29 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/02/20 11:07:58 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,10 @@ std::ostream& operator<<(std::ostream& out, Bureaucrat& bureaucrat) {
     return (out);
 }
 
+Bureaucrat::Bureaucrat(void) : _grade(150) ,_name("none") {
+    std::cout << "Default constructor called" << std::endl;
+}
+
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name) {
     try {
         this->setGrade(grade);
@@ -71,6 +75,11 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name) {
         std::cerr << tooLow.what() << std::endl;
     }
     std::cout << "Constructor called" << std::endl;
+}
+
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& copy) {
+    (void)copy;
+    return (*this);
 }
 
 Bureaucrat::~Bureaucrat(void) {
