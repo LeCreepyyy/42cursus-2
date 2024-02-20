@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 11:11:59 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/02/20 13:48:04 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/02/20 14:29:12 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,19 +36,22 @@ const char* Intern::FormNotFound::what() const throw() {
 }
 
 Form* Intern::makeForm(std::string name, std::string target) {
+    Form *founded = NULL;
     try {
         Form *pf[] = {new RobotomyRequestForm(target) ,new ShrubberyCreationForm(target), new PresidentialPardonForm(target)};
 
     	std::string	list[] = {"robotomy request", "shrubbery creation", "presidential pardon"};
     	for (int i = 0; i < 3; i++) {
     		if (name == list[i]) {
-    			return (pf[i]);
+    			founded = pf[i];
     		}
+            else
+                delete pf[i];
     	}
         throw Intern::FormNotFound();
     }
     catch (const Intern::FormNotFound& notForm) {
         std::cout << notForm.what() << std::endl;
     }
-    return (NULL);
+    return (founded);
 }

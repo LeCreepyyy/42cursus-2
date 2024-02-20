@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 09:54:51 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/02/20 13:59:27 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/02/20 14:29:04 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,5 @@ int main(void) {
     Bureaucrat spdm("Spider-Man", 1);
     spdm.signForm(*doc);
     spdm.executeForm(*doc);
+    delete doc;
 }
