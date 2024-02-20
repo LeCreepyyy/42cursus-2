@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 09:48:44 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/02/20 10:59:59 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/02/20 13:51:33 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
         public :
             Bureaucrat(void);
             Bureaucrat(std::string name, int grade);
+            Bureaucrat(const Bureaucrat& copy);
             Bureaucrat& operator=(const Bureaucrat& copy);
             ~Bureaucrat(void);
             int getGrade(void);
