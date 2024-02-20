@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 10:18:48 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/02/20 11:07:22 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/02/20 13:37:38 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ std::ostream& operator<<(std::ostream& out, Bureaucrat& bureaucrat) {
     return (out);
 }
 
-Bureaucrat::Bureaucrat(void) : _name("none") ,_grade(150) {
+Bureaucrat::Bureaucrat(void) : _grade(150) ,_name("none") {
     std::cout << "Default constructor called" << std::endl;
 }
 

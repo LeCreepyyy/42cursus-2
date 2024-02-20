@@ -9,6 +9,7 @@ SRCS        :=      main.cpp \
 						PresidentialPardonForm.cpp \
 						RobotomyRequestForm.cpp \
 						ShrubberyCreationForm.cpp \
+						Intern.cpp \
                           
 OBJS        := ${SRCS:.cpp=.o}
 
@@ -35,7 +36,7 @@ bonus:		all
 
 clean:
 			@ ${RM} *.o */*.o */*/*.o
-			@ ${RM} formTrees_shrubbery
+			@ ${RM} *_shrubbery
 			@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)objs ✔️"
 
 fclean:		clean

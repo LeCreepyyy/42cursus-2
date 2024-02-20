@@ -6,14 +6,14 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 10:46:09 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/02/19 11:30:34 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/02/20 11:14:58 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm(void) : Form("PresidentialPardonForm", 25, 5) ,_target("none") {
-    std::cout << "PresidentialPardonForm constructor called" << std::endl;
+    std::cout << "PresidentialPardonForm default constructor called" << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form("PresidentialPardonForm", 25, 5) ,_target(target) {

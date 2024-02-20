@@ -6,14 +6,14 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 13:20:01 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/02/19 10:50:58 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/02/20 11:15:18 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
 Form::Form(void) : _sign(false) ,_gradeForSign(1) ,_gradeForExec(1) ,_name("none") {
-    std::cout << "Form constructor called" << std::endl;
+    std::cout << "Form default constructor called" << std::endl;
 }
 
 Form::Form(std::string name, int gradeForSign, int gradeForExec) : _sign(false), _gradeForSign(gradeForSign), _gradeForExec(gradeForExec), _name(name) {

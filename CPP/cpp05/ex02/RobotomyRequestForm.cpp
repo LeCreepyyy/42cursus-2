@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 10:43:06 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/02/19 11:39:29 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/02/20 11:16:06 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <cstdlib>
 
 RobotomyRequestForm::RobotomyRequestForm(void) : Form("RobotomyRequestForm", 72, 45) ,_target("none") {
-    std::cout << "RobotomyRequestForm constructor called" << std::endl;
+    std::cout << "RobotomyRequestForm default constructor called" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target) : Form("RobotomyRequestForm", 72, 45) ,_target(target) {
