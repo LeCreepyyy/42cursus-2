@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 14:16:14 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/02/22 11:16:07 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/02/22 11:16:40 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,11 +126,11 @@ ScalarConverter::ScalarConverter(void) {
 }
 
 ScalarConverter::ScalarConverter(const ScalarConverter& copy) {
+    (void)copy;
     std::cout << "ScalarConverter copy constructor called" << std::endl;
 }
 
 ScalarConverter::~ScalarConverter(void) {
-    (void)copy;
     std::cout << "ScalarConverter destructor called" << std::endl;
 }
 
