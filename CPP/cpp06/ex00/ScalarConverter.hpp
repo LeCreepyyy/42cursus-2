@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 14:11:21 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/02/21 14:39:03 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/02/22 11:09:08 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@
 
     class ScalarConverter {
         public :
+            ScalarConverter(void);
+            ScalarConverter(const ScalarConverter& copy);
+            ScalarConverter& operator=(const ScalarConverter& copy);
+            ~ScalarConverter(void);
             static void convert(std::string arg);
     };
 
