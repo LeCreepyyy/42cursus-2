@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 10:52:00 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/02/26 12:08:08 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/02/26 14:16:47 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,13 @@ void Base::identify(Base* p) {
 }
 
 void Base::identify(Base& b) {
-    ;
+    if (dynamic_cast<A*>(&b)) {
+        std::cout << "b is class A" << std::endl;
+    }
+    else if (dynamic_cast<B*>(&b)) {
+        std::cout << "b is class B" << std::endl;
+    }
+    else {
+        std::cout << "b is class C" << std::endl;
+    }
 }
