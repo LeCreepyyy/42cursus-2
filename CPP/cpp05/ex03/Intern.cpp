@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 11:11:59 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/02/20 14:29:12 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/02/27 13:37:35 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,9 @@ Form* Intern::makeForm(std::string name, std::string target) {
     	for (int i = 0; i < 3; i++) {
     		if (name == list[i]) {
     			founded = pf[i];
+                while (++i < 3)
+                    delete pf[i];
+                return (founded);
     		}
             else
                 delete pf[i];
@@ -51,7 +54,9 @@ Form* Intern::makeForm(std::string name, std::string target) {
         throw Intern::FormNotFound();
     }
     catch (const Intern::FormNotFound& notForm) {
+        std::cout << "---" << std::endl;
         std::cout << notForm.what() << std::endl;
+        std::cout << "---" << std::endl;
     }
-    return (founded);
+    return (NULL);
 }

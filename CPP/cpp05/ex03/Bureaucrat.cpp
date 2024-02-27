@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 10:18:48 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/02/20 13:57:41 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/02/27 13:09:25 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,11 @@ int Bureaucrat::getGrade(void)const {
 
 std::string Bureaucrat::getName(void) {
     return (this->_name);
+}
+
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& copy) {
+    (void)copy;
+    return (*this);
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
@@ -93,10 +98,6 @@ Bureaucrat::Bureaucrat(const Bureaucrat& copy) : _grade(copy._grade) ,_name(copy
     std::cout << "Bureaucrat copy constructor called" << std::endl;
 }
 
-Bureaucrat& Bureaucrat::operator=(const Bureaucrat& copy) {
-    (void)copy;
-    return (*this);
-}
 
 Bureaucrat::~Bureaucrat(void) {
     std::cout << "Bureaucrat destructor called" << std::endl;
