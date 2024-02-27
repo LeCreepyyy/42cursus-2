@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 09:54:51 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/02/27 13:37:47 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/02/27 13:39:55 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main(void) {
     Intern tomHolland;
     Form *doc;
 
-    doc = tomHolland.makeForm("robotomy request", "zendaya");
+    doc = tomHolland.makeForm("non", "zendaya");
     
     Bureaucrat spdm("Spider-Man", 1);
     if (doc != NULL) {
