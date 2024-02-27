@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   allClass.hpp                                       :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 10:37:25 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/02/27 10:05:41 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/02/27 12:55:41 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,11 @@
 
 # include <string>
 # include <iostream>
+# include <cstdlib>
 
     class Base {
         public :
-            Base(void);
             virtual ~Base(void);
-            Base* generate(void);
-            void identify(Base* p);
-            void identify(Base& p);
     };
 
     class A : public Base {};
