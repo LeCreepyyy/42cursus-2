@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 10:52:00 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/02/26 14:16:47 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/02/27 10:13:12 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,24 +42,36 @@ Base* Base::generate(void) {
 
 void Base::identify(Base* p) {
     if (dynamic_cast<A*>(p)) {
-        std::cout << "p is class A" << std::endl;
+        std::cout << "*p is class A" << std::endl;
     }
     else if (dynamic_cast<B*>(p)) {
-        std::cout << "p is class B" << std::endl;
+        std::cout << "*p is class B" << std::endl;
+    }
+    else if (dynamic_cast<C*>(p)) {
+        std::cout << "*p is class C" << std::endl;
     }
     else {
-        std::cout << "p is class C" << std::endl;
+        std::cout << "Not class A B or C" << std::endl;
     }
 }
 
-void Base::identify(Base& b) {
-    if (dynamic_cast<A*>(&b)) {
-        std::cout << "b is class A" << std::endl;
+void Base::identify(Base& p) {
+    try {
+        A a = dynamic_cast<A&>(p);
+        std::cout << "&p is class A" << std::endl;
+        return ;
     }
-    else if (dynamic_cast<B*>(&b)) {
-        std::cout << "b is class B" << std::endl;
+    catch (std::exception& e) {
+        try {
+            B b = dynamic_cast<B&>(p);
+            std::cout << "&p is class B" << std::endl;
+            return ;
+        }
+        catch (std::exception& e) {
+            C c = dynamic_cast<C&>(p);
+            std::cout << "&p is class C" << std::endl;
+            return ;
+        }
     }
-    else {
-        std::cout << "b is class C" << std::endl;
-    }
+    std::cout << "Not class A B or C" << std::endl;
 }

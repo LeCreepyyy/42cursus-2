@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 10:37:25 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/02/26 11:55:01 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/02/27 10:05:41 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
             virtual ~Base(void);
             Base* generate(void);
             void identify(Base* p);
-            void identify(Base& b);
+            void identify(Base& p);
     };
 
     class A : public Base {};
