@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   eazyfind.hpp                                       :+:      :+:    :+:   */
+/*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 13:45:17 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/02/29 14:11:02 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/03/01 10:34:59 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EAZYFIND_HPP
-# define EAZYFIND_HPP
+#ifndef EASYFIND_HPP
+# define EASYFIND_HPP
 
 # include <string>
 # include <iostream>
+# include <algorithm>
 # include <vector>
 
 class notInContainer : public std::exception {
@@ -25,14 +26,12 @@ class notInContainer : public std::exception {
 };
 
 template<typename T>
-int    eazyfind(T container, int n) {
-    int i = 0;
-    for(; container[i]; i++) {
-        if (container[i] == n)
-            return (i);
+typename T::iterator    easyfind(T& container, int n) {
+    std::vector<int>::iterator it = std::find(container.begin(), container.end(), n);
+    if (it == container.end()) {
+        throw notInContainer();
     }
-    throw notInContainer();
-    return (0);
+    return (it);
 }
 
 #endif
