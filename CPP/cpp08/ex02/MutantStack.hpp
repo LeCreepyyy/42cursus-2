@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 10:45:09 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/03/08 14:20:45 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/03/11 10:49:28 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,18 @@
     # include <stack>
     # include <deque>
 
-    template<typename T>
-    class MutantStack {
-        private :
-            std::deque<T> mStack;
-            std::stack<T, std::deque<T> > topStack;
+    template<typename T, class Container = std::deque<T> >
+    class MutantStack : public std::stack<T, Container> { 
         public :
             MutantStack(void) {
-                std::cout << "MutantStack constructor called" << std::endl;
+                std::cout << "MutantStack default constructor called" << std::endl;
             }
-            MutantStack(const MutantStack& base) {
-                base.mStack = this->mStack;
-                std::cout << "MutantStack copy constructor called" << std::endl;
-            }
+
+            MutantStack(const MutantStack& base) : std::stack<T, Container>(base) {}
+
             MutantStack& operator=(const MutantStack& base) {
-                base.mStack = this->mStack;
+                if (&base != this)
+                    static_cast<std::stack<T, Container> >(*this) = base;
                 std::cout << "MutantStack copy assignation called" << std::endl;
                 return (*this);
             }
@@ -41,32 +38,19 @@
                 std::cout << "MutantStack detructor called" << std::endl;
             }
 
-            void push(const T& value) {
-                mStack.push_back(value);
-                topStack.push(value);
-            }
-            void pop(void) {
-                mStack.pop_back();
-                topStack.pop();
-            }
-            T& top(void) {
-                return (topStack.top());
-            }
-            bool empty(void) {
-                return (mStack.empty());
-            }
-            size_t size(void) {
-                return (mStack.size());
-            }
-
             typedef typename std::deque<T>::iterator iterator;
 
+            MutantStack operator--() {
+                --(this->c);
+                return (this->c);
+            }
+
             iterator begin() {
-                return mStack.begin();
+                return this->c.begin();
             }
 
             iterator end() {
-                return mStack.end();
+                return this->c.end();
             }
         };
 
