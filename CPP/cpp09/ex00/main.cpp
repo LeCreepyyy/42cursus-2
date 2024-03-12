@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 10:45:55 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/03/11 14:18:36 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/03/12 14:28:29 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,37 @@
 
 bool parsing(std::string data) {
     size_t i = 0;
-    for (; i != 11; ++i) {
-        if (data[i] && ((data[i] >= '0' && data[i] <= '9') || data[i] == ',' || data[i] == '-'))
+    static int pass = 2;
+    std::cout << pass++ << " : ";
+    for (; i != data.size(); ++i) {
+        if (data[i] && ((data[i] >= '0' && data[i] <= '9') || data[i] == ',' || data[i] == '-' || data[i] == '.'))
             continue ;
         std::cout << "Error: bad input => \"" << data << "\"" << std::endl;
         return (false);
     }
-    if (data[5] > '3' || (data[5] == '3' && data[6] > '1')) {
+    if (i <= 11) {
         std::cout << "Error: bad input => \"" << data << "\"" << std::endl;
         return (false);
     }
-    if (data[8] > '1' || (data[8] == '1' && data[9] > '2')) {
-        std::cout << "Error: bad input => \"" << data << "\"" << std::endl;
+    if ((data[4] >= '0' && data[4] <= '9')
+        || (data[7] >= '0' && data[7] <= '9') 
+        || (data[10] >= '0' && data[10] <= '9'))
         return (false);
-    }
-    int value = std::atoi(static_cast<char*>(&data[i]));
-    if (value < 0) {
-        std::cout << "Error: not a positive number." << std::endl;
-        return (false);
-    }
+    double value = strtod(&data[12], NULL);
     if (value > 1000) {
-        std::cout << "Error: too large a number." << std::endl;
+        std::cout << "error nbr" << std::endl;
+        return (false);
+    }
+    if (value < 0) {
+        std::cout << "error nbr" << std::endl;
         return (false);
     }
     return (true);
 }
 
 int main(int argc, char** argv) {
-    std::string dataFileName = argv[1];
-    std::ifstream dataFile(dataFileName);
+    (void)argc;
+    std::ifstream dataFile(argv[1]);
     if (!dataFile.is_open()) {
         std::cout << "Error: could not open file." << std::endl;
         return (1);
@@ -52,6 +54,7 @@ int main(int argc, char** argv) {
     while (std::getline(dataFile, data)) {
         if (parsing(data) == true) {
             // add too container
+            std::cout << "date clear" << std::endl;
             continue ;
         }
     }

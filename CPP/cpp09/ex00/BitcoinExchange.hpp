@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 10:46:11 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/03/11 13:28:09 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/03/12 09:52:28 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <string>
 # include <iostream>
 # include <fstream>
+# include <cstdlib>
 # include <map>
 
 #endif
