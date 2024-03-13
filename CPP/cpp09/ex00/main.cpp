@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 10:45:55 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/03/13 11:56:42 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/03/13 13:31:55 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ int main(int argc, char** argv) {
     }
     std::string data;
     std::getline(dataFile, data);
+    std::cout << std::fixed << std::endl;
     while (std::getline(dataFile, data)) {
         if (parsing(data) == true) {
             // add too container
