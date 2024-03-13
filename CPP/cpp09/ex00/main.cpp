@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 10:45:55 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/03/12 14:28:29 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/03/13 11:50:37 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,24 @@ bool parsing(std::string data) {
         std::cout << "Error: bad input => \"" << data << "\"" << std::endl;
         return (false);
     }
-    if ((data[4] >= '0' && data[4] <= '9')
-        || (data[7] >= '0' && data[7] <= '9') 
-        || (data[10] >= '0' && data[10] <= '9'))
-        return (false);
-    double value = strtod(&data[12], NULL);
-    if (value > 1000) {
-        std::cout << "error nbr" << std::endl;
+    if ((data[5] != '0' && data[5] != '1')
+        || (data[8] != '0' && data[8] != '1' && data[8] != '2' && data[8] != '3')) {
+        std::cout << "Error: bad input => \"" << data << "\"" << std::endl;
         return (false);
     }
-    if (value < 0) {
-        std::cout << "error nbr" << std::endl;
+    if ((data[4] >= '0' && data[4] <= '9')
+        || (data[7] >= '0' && data[7] <= '9') 
+        || (data[10] >= '0' && data[10] <= '9')) {
+        std::cout << "Error: bad input => \"" << data << "\"" << std::endl;
+        return (false);
+    }
+    double value = strtod(&data[11], NULL);
+    if (value > 1000) {
+        std::cout << "Error: too large a number." << std::endl;
+        return (false);
+    }
+    if (data[11] == '-') {
+        std::cout << "Error: not a positive number." << std::endl;
         return (false);
     }
     return (true);
