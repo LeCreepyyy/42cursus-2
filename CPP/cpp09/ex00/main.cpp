@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 10:45:55 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/03/14 10:48:37 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/03/14 13:43:15 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ int main(int argc, char** argv) {
     std::cout << std::fixed << std::endl;
     while (std::getline(dataFile, data)) {
         if (btc.parsing(data) == true) {
-            // add too container
+            std::string date;
+            btc.setMap();
             std::cout << "date clear" << std::endl;
             continue ;
         }

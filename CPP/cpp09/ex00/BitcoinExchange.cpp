@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 10:03:59 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/03/14 11:12:21 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/03/14 13:42:15 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,5 @@ std::map<std::string, float> BitcoinExchange::getMap(void) {
 }
 
 void BitcoinExchange::setMap(std::string str, float value) {
-    //std::pair<std::map<std::string, float>::iterator, bool> result = this->map.insert(std::make_pair(str, value));
     map.insert(std::make_pair(str, value));
 }
