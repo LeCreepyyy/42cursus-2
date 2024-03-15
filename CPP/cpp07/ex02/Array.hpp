@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 10:16:17 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/03/15 11:29:20 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/03/15 13:15:24 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@
 
             ~Array(void) {
                 std::cout << "destructor called" << std::endl;
-                if (_arrayT != NULL)
-                    delete _arrayT;
+                //if (_arrayT != NULL)
+                    //delete _arrayT;
             }
 
             Array* operator=(const Array& copy) {
