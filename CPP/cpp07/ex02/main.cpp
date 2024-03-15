@@ -6,23 +6,59 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 12:52:19 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/02/29 13:38:03 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/03/15 11:17:04 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
 
-int main(void) {
-    Array<int> Array(3);
-    try {
-        Array[0] = 29;
-        Array[1] = 28;
-        Array[2] = 48;
-        Array[5] = 25;
+#define MAX_VAL 750
+int main(int, char**)
+{
+    Array<int> numbers(MAX_VAL);
+    int* mirror = new int[MAX_VAL];
+    srand(time(NULL));
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        const int value = rand();
+        numbers[i] = value;
+        mirror[i] = value;
     }
-    catch (std::exception& e) {
-        std::cout << e.what() << std::endl;
+    //SCOPE
+    {
+        Array<int> tmp = numbers;
+        Array<int> test(tmp);
     }
-    std::cout << "Size of array : " << Array.size() << std::endl;
-    std::cout << Array[0] << "|" << Array[1] << "|" << Array[2] << std::endl;
+
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        if (mirror[i] != numbers[i])
+        {
+            std::cerr << "didn't save the same value!!" << std::endl;
+            return 1;
+        }
+    }
+    try
+    {
+        numbers[-2] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    try
+    {
+        numbers[MAX_VAL] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        numbers[i] = rand();
+    }
+    delete [] mirror;//
+    return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 10:16:17 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/02/29 13:27:34 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/03/15 11:29:20 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <string>
 # include <iostream>
+# include <cstdlib>
 
     template<typename T>
     class Array {
@@ -51,8 +52,8 @@
                 return (this->_n);
             }
 
-            unsigned int getN(void) {
-                return (this->n);
+            unsigned int getN(void) const {
+                return (this->_n);
             }
 
             T& operator[](unsigned int index) {
