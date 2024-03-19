@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
+/*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 10:45:55 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/03/15 10:30:23 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/03/19 10:51:06 by creepy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int main(int argc, char** argv) {
     }
     std::string line;
     std::getline(data, line);
-    std::cout << std::fixed << std::endl;
     char *endPtr;
     while (std::getline(data, line)) {
         std::string date = line.substr(0, 10);
@@ -32,7 +31,20 @@ int main(int argc, char** argv) {
             std::cerr << "Error: crash strtod" << std::endl;
             return (1);
         }
-        std::map<std::string, double> dataMap;
-        btc.setMap(date, rate);
+        btc.setInMap(date, rate);
+    }
+    std::getline(input, line);
+    while (std::getline(input, line)) {
+        if (btc.parsing(line) == false)
+            continue;
+        std::string date = line.substr(0, 10);
+        double value = strtod(&line[13], &endPtr);
+        try {
+            double rate = btc.getInMap(date);
+            std::cout << date << " => " << value << " = " << value * rate << std::endl;
+        }
+        catch (const BitcoinExchange::noDateFound& e) {
+            std::cerr << e.what() << std::endl;
+        }
     }
 }

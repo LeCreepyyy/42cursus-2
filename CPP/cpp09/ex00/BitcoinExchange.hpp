@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
+/*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 10:46:11 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/03/15 10:31:39 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/03/19 10:13:17 by creepy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,13 @@
             ~BitcoinExchange(void);
             
             bool parsing(std::string data);
-            std::map<std::string, double> getInMap(std::string date);
+            double getInMap(std::string date);
             void setInMap(std::string str, double value);
+
+            class noDateFound : public std::exception {
+                public :
+                    virtual const char* what() const throw();
+            };
     };
 
 #endif

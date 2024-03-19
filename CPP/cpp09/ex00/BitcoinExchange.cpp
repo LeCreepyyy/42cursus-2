@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
+/*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 10:03:59 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/03/15 11:15:36 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/03/19 11:03:01 by creepy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,10 @@ bool BitcoinExchange::parsing(std::string data) {
     size_t i = 0;
     static int pass = 1;
     std::cout << ++pass << " : ";
+    if (data.size() < 13) {
+        std::cout << "Error: bad input => \"" << data << "\"" << std::endl;
+        return (false);
+    }
     for (; i != data.size(); ++i) {
         if (data[i] && ((data[i] >= '0' && data[i] <= '9') || data[i] == '|' || data[i] == ' ' || data[i] == '-' || data[i] == '.'))
             continue ;
@@ -63,20 +67,37 @@ bool BitcoinExchange::parsing(std::string data) {
         std::cout << "Error: bad input => \"" << data << "\"" << std::endl;
         return (false);
     }
+    if (data[13] == '-') {
+        std::cout << "Error: not a positive number." << std::endl;
+        return (false);
+    }
     double value = strtod(&data[13], NULL);
     if (value > 1000) {
         std::cout << "Error: too large a number." << std::endl;
         return (false);
     }
-    if (data[11] == '-') {
-        std::cout << "Error: not a positive number." << std::endl;
-        return (false);
-    }
     return (true);
 }
 
-std::map<std::string, double> BitcoinExchange::getInMap(std::string date) {
-    map;
+const char* BitcoinExchange::noDateFound::what() const throw() {
+    return ("Error: date is too old");
+}
+
+double BitcoinExchange::getInMap(std::string date) {
+    double rate;
+    std::map<std::string, double>::iterator it = map.find(date);
+    if (it != map.end())
+        rate = it->second;
+    else {
+        std::map<std::string, double>::iterator it = map.lower_bound(date);
+        if (it != map.begin()) {
+            --it;
+            rate = it->second;
+        }
+        else
+            throw BitcoinExchange::noDateFound();
+    }
+    return (rate);
 }
 
 void BitcoinExchange::setInMap(std::string str, double value) {
