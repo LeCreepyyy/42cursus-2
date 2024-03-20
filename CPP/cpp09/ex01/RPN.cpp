@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 10:39:44 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/03/20 13:20:53 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/03/20 13:50:45 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,14 @@ void RPN::calculate(char op) {
         push(get() * get());
     if (op == '-')
         push(get() - get());
-    if (op == '/')
-        push(get() / get());
+    if (op == '/') {
+        int v1 = get();
+        int v2 = get();
+        if (v1 == 0 || v2 == 0)
+            throw std::runtime_error("Impossible Action");
+        push(v1 / v2);
+    }
+    std::cout << mStack.top() << std::endl;
 }
 
 void RPN::swap(void) {
