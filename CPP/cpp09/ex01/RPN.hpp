@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 10:22:41 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/03/20 13:11:34 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/03/20 14:17:46 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
     class RPN {
         private :
             std::stack<int> mStack;
+            int lastResult;
         public :
             RPN(void);
             RPN(const RPN& original);
@@ -31,6 +32,8 @@
             void calculate(char op);
             void end(void);
             void swap(void);
+            int getLastResult(void);
+            int getTop(void);
     };
 
 #endif

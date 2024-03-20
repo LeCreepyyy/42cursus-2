@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 11:17:31 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/03/20 13:20:16 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/03/20 14:19:04 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main(int argc, char** argv) {
                 continue;
             else if (line[i] != '+' && line[i] != '-' && line[i] != '*' && line[i] != '/')
                 throw std::runtime_error("Syntax Error");
-            else if ((line[i] == '/' || line[i] == '-') && i != 0)
+            else if (i != 0 && rpn.getLastResult() != rpn.getTop())
                 rpn.swap();
             rpn.calculate(line[i]);
         }

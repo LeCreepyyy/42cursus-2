@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 10:39:44 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/03/20 13:50:45 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/03/20 14:18:07 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,23 +39,35 @@ int RPN::get(void) {
     return (top);
 }
 
+int RPN::getLastResult(void) {
+    return (lastResult);
+}
+
+int RPN::getTop() {
+    return (mStack.top());
+}
+
 void RPN::calculate(char op) {
     if (mStack.size() < 2)
         throw std::runtime_error("Syntax Error");
-    if (op == '+')
-        push(get() + get());
-    if (op == '*')
-        push(get() * get());
-    if (op == '-')
-        push(get() - get());
-    if (op == '/') {
-        int v1 = get();
-        int v2 = get();
-        if (v1 == 0 || v2 == 0)
-            throw std::runtime_error("Impossible Action");
-        push(v1 / v2);
+    switch (op) {
+        case '+' :
+            push(get() + get());
+            break;
+        case '*' :
+            push(get() * get());
+            break;
+        case '-' :
+            push(get() - get());
+            break;
+        case '/' :
+            int v1 = get();
+            int v2 = get();
+            if (v1 == 0 || v2 == 0)
+                throw std::runtime_error("Impossible Action");
+            push(v1 / v2);
     }
-    std::cout << mStack.top() << std::endl;
+    lastResult = mStack.top();
 }
 
 void RPN::swap(void) {
