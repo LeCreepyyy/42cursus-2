@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 10:54:24 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/03/11 10:34:48 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/03/25 09:48:52 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,6 @@ int main()
         ++lstIt;
     }
     lstIte = lst.begin();
-    std::cout << "reverse" << std::endl;
-    while (lstIt != lstIte)
-    {
-        std::cout << *lstIt << std::endl;
-        --lstIt;
-    }
     std::cout << "MStack : " << std::endl;
     while (it != ite)
     {
@@ -61,12 +55,6 @@ int main()
         ++it;
     }
     ite = mstack.begin();
-    std::cout << "reverse" << std::endl;
-    while (it != ite)
-    {
-        std::cout << *it << std::endl;
-        --it;
-    }
     std::stack<int> s(mstack);
     return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 10:45:09 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/03/11 10:49:28 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/03/25 09:49:02 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,6 @@
             }
 
             typedef typename std::deque<T>::iterator iterator;
-
-            MutantStack operator--() {
-                --(this->c);
-                return (this->c);
-            }
 
             iterator begin() {
                 return this->c.begin();
