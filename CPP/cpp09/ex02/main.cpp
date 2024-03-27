@@ -6,14 +6,15 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 10:17:17 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/03/26 14:26:57 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/03/27 12:58:50 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
 int main(int argc, char** argv) {
-    // bool parsing : only numbers / no doubles / only int / no negative / int max
+    if (parsing(argc, argv) == false)
+        return (1);
     std::deque<int> d1;
     std::deque<int> d2;
     for (int i = 1; i < argc; i += 2) {
@@ -28,4 +29,5 @@ int main(int argc, char** argv) {
             d2.push_back(atoi(argv[i]));
         }
     }
+    return (0);
 }
