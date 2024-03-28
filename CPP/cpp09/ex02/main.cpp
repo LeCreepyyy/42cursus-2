@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 10:17:17 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/03/27 13:55:16 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/03/28 14:10:27 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@ int main(int argc, char** argv) {
         return (1);
     std::deque<int> d1;
     std::deque<int> d2;
+    std::vector<int> e = getJacobsthal((argc - 1) / 2);
+    for (std::vector<int>::iterator it = e.begin(); it != e.end(); it++) {
+        std::cout << *it << std::endl;
+    }
     for (int i = 1; i < argc; i += 2) {
         if (i + 1 == argc)
             d1.push_back(atoi(argv[i]));

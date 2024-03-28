@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:44:21 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/03/27 14:18:21 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/03/28 14:10:18 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,18 @@ bool parsing(int argc, char** argv) {
 
 std::vector<int> getJacobsthal(int size) {
     std::vector<int> jacobsthal;
-    int current = 0;
-    int next = 1;
+    int prev = 0;
+    int current = 1;
+    int next = 0;
 
-    while (current <= size) {
+    while (current <= size)
+    {
         jacobsthal.push_back(current);
-        int tmp = current;
+        next = current + (2 * prev);
+        prev = current;
         current = next;
-        next = tmp + 2 * next;
     }
-    return (jacobsthal);
+    next = current + (2 * prev);
+    jacobsthal.push_back(current);
+    return jacobsthal;
 }
