@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:44:21 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/04/02 11:36:11 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/04/05 11:18:29 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ bool parsing(int argc, char** argv) {
     return (true);
 }
 
-std::vector<int> getJacobsthal(int size) {
-    std::vector<int> jacobsthal;
+std::deque<int> getJacobsthal(int size) {
+    std::deque<int> jacobsthal;
     int prev = 0;
     int current = 1;
     int next = 0;
@@ -56,4 +56,27 @@ std::vector<int> getJacobsthal(int size) {
     next = current + (2 * prev);
     jacobsthal.push_back(current);
     return jacobsthal;
+}
+
+std::deque<int> setArgToDeque(int argc, char** argv) {
+    std::deque<int> argList;
+    for (int i = 1; i != argc; i++)
+        argList.push_back(atoi(argv[i]));
+    return argList;
+}
+
+std::deque<std::deque<int>> enterPair(std::deque<int> arg) {
+    std::deque<std::deque<int>> chainPair;
+    std::deque<int> tmpPair;
+    while (arg.size() == 0) {
+        tmpPair.push_back(arg.front());
+        arg.pop_front();
+        tmpPair.push_back(arg.front());
+        arg.pop_front();
+        //sort pair
+        chainPair.push_back(tmpPair);
+        tmpPair.pop_front();
+        tmpPair.pop_front();
+    }
+    return (chainPair);
 }
