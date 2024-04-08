@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:44:21 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/04/05 12:03:08 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/04/08 10:27:11 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,10 @@ void    swapPair(std::deque<int> & pair) {
     pair.push_back(tmp);
 }
 
-std::deque<std::deque<int>> enterPair(std::deque<int> arg) {
-    std::deque<std::deque<int>> chainPair;
+std::deque<std::deque<int> > enterPair(std::deque<int> arg) {
+    std::deque<std::deque<int> > chainPair;
     std::deque<int> tmpPair;
-    while (arg.size() == 0) {
+    while (arg.size() != 0) {
         tmpPair.push_back(arg.front());
         arg.pop_front();
         tmpPair.push_back(arg.front());
