@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:44:21 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/04/08 10:27:11 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/04/08 13:55:53 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,20 @@ std::deque<int> setArgToDeque(int argc, char** argv) {
     return argList;
 }
 
-void    swapPair(std::deque<int> & pair) {
+void    swapInPair(std::deque<int> & pair) {
     int tmp = pair.front();
     pair.pop_front();
     pair.push_back(tmp);
+}
+
+void    swapPair(std::deque<std::deque<int> > & pair, size_t i) {
+    std::deque<int> tmp = pair[i - 1];
+    pair[i - 1] = pair[i];
+    pair[i] = tmp;
+}
+
+bool compareHigh(const std::deque<int> a, const std::deque<int> b) {
+    return (a[1] < b[1]);
 }
 
 std::deque<std::deque<int> > enterPair(std::deque<int> arg) {
@@ -80,10 +90,28 @@ std::deque<std::deque<int> > enterPair(std::deque<int> arg) {
         tmpPair.push_back(arg.front());
         arg.pop_front();
         if (tmpPair.front() > tmpPair.back())
-            swapPair(tmpPair);
+            swapInPair(tmpPair);
         chainPair.push_back(tmpPair);
         tmpPair.pop_front();
         tmpPair.pop_front();
     }
+    std::sort(chainPair.begin(), chainPair.end(), compareHigh);
     return (chainPair);
+}
+
+std::deque<int> getHigh(std::deque<std::deque<int> > list) {
+    std::deque<int> high;
+    for (size_t i = 0; i != list.size(); i++) {
+        high.push_back(list[i][1]);
+    }
+    return (high);
+}
+
+std::deque<int> getLow(std::deque<std::deque<int> > list, int last) {
+    std::deque<int> low;
+    for (size_t i = 0; i != list.size(); i++) {
+        low.push_back(list[i][0]);
+    }
+    low.push_back(last);
+    return (low);
 }
