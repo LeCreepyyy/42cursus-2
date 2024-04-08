@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 10:30:42 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/04/08 13:56:40 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/04/08 14:14:34 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ std::deque<std::deque<int> > enterPair(std::deque<int> arg);
 std::deque<int> setArgToDeque(int argc, char** argv);
 std::deque<int> getHigh(std::deque<std::deque<int> > list);
 std::deque<int> getLow(std::deque<std::deque<int> > list, int last);
+std::deque<int> jbSort(std::deque<int> high, std::deque<int> low, std::deque<int> jb);
 
 #endif

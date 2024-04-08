@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:44:21 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/04/08 13:55:53 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/04/08 14:22:20 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,19 @@ std::deque<int> getJacobsthal(int size) {
     int current = 1;
     int next = 0;
 
+    jacobsthal.push_back(0);
     while (current <= size)
     {
-        jacobsthal.push_back(current);
         next = current + (2 * prev);
         prev = current;
         current = next;
+        jacobsthal.push_back(current);
     }
-    next = current + (2 * prev);
-    jacobsthal.push_back(current);
+    if (jacobsthal.back() > size) {
+        jacobsthal.pop_back();
+        if (jacobsthal.back() != size)
+            jacobsthal.push_back(size);
+    }
     return jacobsthal;
 }
 
@@ -114,4 +118,19 @@ std::deque<int> getLow(std::deque<std::deque<int> > list, int last) {
     }
     low.push_back(last);
     return (low);
+}
+
+std::deque<int> jbSort(std::deque<int> high, std::deque<int> low, std::deque<int> jb) {
+    for (size_t i = 0; i < jb.size() ; i++)
+    {
+        if (i == 0)
+            ;//insert_sort(highs, lows, 0);
+        else
+        {
+            int z = jb[i];
+            while (z > jb[i - 1])
+                ;//insert_sort(highs, lows, z--);
+        }
+    }
+    return high;
 }
