@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:44:21 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/04/09 13:30:18 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/04/09 14:27:24 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ std::deque<int> getJacobsthal(int size) {
     int current = 1;
     int next = 0;
 
-    size--;
     jacobsthal.push_back(0);
     while (current <= size)
     {
@@ -104,21 +103,22 @@ std::deque<std::deque<int> > enterPair(std::deque<int> arg) {
     return (chainPair);
 }
 
-std::deque<int> getHigh(std::deque<std::deque<int> > list) {
+std::deque<int> getHigh(std::deque<std::deque<int> > list, int last) {
     std::deque<int> high;
     for (size_t i = 0; i != list.size(); i++) {
         high.push_back(list[i][1]);
     }
+    if (last >= 0)
+        high.push_front(last);
+    std::sort(high.begin(), high.end());
     return (high);
 }
 
-std::deque<int> getLow(std::deque<std::deque<int> > list, int last) {
+std::deque<int> getLow(std::deque<std::deque<int> > list) {
     std::deque<int> low;
     for (size_t i = 0; i != list.size(); i++) {
         low.push_back(list[i][0]);
     }
-    if (last != -1)
-        low.push_back(last);
     return (low);
 }
 
@@ -130,34 +130,42 @@ void swapInsertSort(int u, std::deque<int> & high) {
 
 void insertSort(std::deque<int> & high, std::deque<int> low, int i) {
     int nbr = low[i];
-    std::cout << "start i = " << i;
     static int orginal_size = high.size();
     i += (high.size() - orginal_size);
-    std::cout << " i = " << i;
     while (i >= 0) {
         if (high[i] < nbr)
             break;
         i--;
     }
-    std::cout << " /" << nbr << "/ " << i << std::endl;
-    std::cout << "low :" << std::endl;
-    printC(low);
     high.push_front(nbr);
-    std::cout << "/" << std::endl;
     int u = 0;
     while (i >= 0) {
-        printC(high);
         swapInsertSort(u, high);
         i--;
         u++;
     }
-    printC(high);
-    std::cout << std::endl;
-    std::cout << std::endl;
+}
+
+void insert_sort(std::deque<int> & high, std::deque<int> low, int z) {
+    int nbr = low[z];
+    if (z == 0 || (z == 1 && high[0] > nbr)) {
+        high.push_front(nbr);
+        return ;
+    }
+    else if (high[z - 1] < nbr && high[z] > nbr) {
+        ;//place here
+    }
+    else if (z == 1 && high[0] < nbr) {
+        high.push_front(nbr);
+        swapInsertSort(0, high);
+        return ;
+    }
+    else if (high[(z / 2)] > nbr) {
+        ;//recurse
+    }
 }
 
 std::deque<int> jbSort(std::deque<int> high, std::deque<int> low, std::deque<int> jb) {
-    printC(jb);
     for (size_t i = 0; i < jb.size() ; i++)
     {
         if (i == 0)
