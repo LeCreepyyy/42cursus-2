@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:44:21 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/04/08 14:22:20 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/04/09 11:39:08 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,21 +116,60 @@ std::deque<int> getLow(std::deque<std::deque<int> > list, int last) {
     for (size_t i = 0; i != list.size(); i++) {
         low.push_back(list[i][0]);
     }
-    low.push_back(last);
+    if (last != -1)
+        low.push_back(last);
     return (low);
 }
 
+void swapInsertSort(int u, std::deque<int> & high) {
+    int tmp = high[u + 1];
+    high[u + 1] = high[u];
+    high[u] = tmp; 
+}
+
+void insertSort(std::deque<int> & high, std::deque<int> low, int i) {
+    int nbr = low[i];
+    std::cout << "start i = " << i;
+    static int orginal_size = high.size();
+    i += (high.size() - orginal_size);
+    std::cout << " i = " << i;
+    while (i >= 0) {
+        if (high[i] < nbr)
+            break;
+        i--;
+    }
+    std::cout << " /" << nbr << "/ " << i << std::endl;
+    std::cout << "low :" << std::endl;
+    printC(low);
+    high.push_front(nbr);
+    std::cout << "/" << std::endl;
+    int u = 0;
+    while (i >= 0) {
+        printC(high);
+        swapInsertSort(u, high);
+        i--;
+        u++;
+    }
+    printC(high);
+    std::cout << std::endl;
+    std::cout << std::endl;
+}
+
 std::deque<int> jbSort(std::deque<int> high, std::deque<int> low, std::deque<int> jb) {
+    printC(jb);
     for (size_t i = 0; i < jb.size() ; i++)
     {
         if (i == 0)
-            ;//insert_sort(highs, lows, 0);
+            insertSort(high, low, 0);
         else
         {
             int z = jb[i];
             while (z > jb[i - 1])
-                ;//insert_sort(highs, lows, z--);
+            {
+                insertSort(high, low, z);
+                z--;
+            }
         }
     }
-    return high;
+    return (high);
 }
