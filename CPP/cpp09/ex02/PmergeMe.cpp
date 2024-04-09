@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
+/*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:44:21 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/04/09 14:27:24 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/04/09 17:53:01 by creepy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,24 +146,36 @@ void insertSort(std::deque<int> & high, std::deque<int> low, int i) {
     }
 }
 
-void insert_sort(std::deque<int> & high, std::deque<int> low, int z) {
-    int nbr = low[z];
-    if (z == 0 || (z == 1 && high[0] > nbr)) {
-        high.push_front(nbr);
-        return ;
-    }
-    else if (high[z - 1] < nbr && high[z] > nbr) {
-        ;//place here
-    }
-    else if (z == 1 && high[0] < nbr) {
-        high.push_front(nbr);
-        swapInsertSort(0, high);
-        return ;
-    }
-    else if (high[(z / 2)] > nbr) {
-        ;//recurse
-    }
-}
+// void setC(std::deque<int> & high, int nbr, int i) {
+//     high.push_front(nbr);
+//     int u = 0;
+//     while (u != (i - 1)) {
+//         swapInsertSort(u, high);
+//         u++;
+//     }
+// }
+
+// void insert_sort(std::deque<int> & high, std::deque<int> low, int z) {
+//     int nbr = low[z];
+//     if (z == 0 || (z == 1 && high[0] > nbr)) {
+//         high.push_front(nbr);
+//         return ;
+//     }
+//     else if (z == 1 && high[0] < nbr) {
+//         high.push_front(nbr);
+//         swapInsertSort(0, high);
+//         return ;
+//     }
+//     else if (high[z - 1] < nbr && high[z] > nbr) {
+//         setC(high, nbr, z);
+//         return ;
+//     }
+//     else if (high[(z / 2)] > nbr) {
+//         z /= 2;
+//         insert_sort(high, low, z);
+//     }
+//     return ;
+// }
 
 std::deque<int> jbSort(std::deque<int> high, std::deque<int> low, std::deque<int> jb) {
     for (size_t i = 0; i < jb.size() ; i++)
