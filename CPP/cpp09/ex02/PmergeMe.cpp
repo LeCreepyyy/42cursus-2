@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:44:21 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/04/09 11:49:19 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/04/09 13:30:18 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ std::deque<int> getJacobsthal(int size) {
     int current = 1;
     int next = 0;
 
+    size--;
     jacobsthal.push_back(0);
     while (current <= size)
     {

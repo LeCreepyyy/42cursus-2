@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 10:30:42 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/04/09 11:48:52 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/04/09 13:21:46 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 # include <vector>
 # include <cstdlib>
 # include <algorithm>
+# include <sys/time.h>
+# include <ctime>
+# include <cstdlib>
 
 bool parsing(int argc, char** argv);
 std::deque<int> getJacobsthal(int size);
