@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 10:30:42 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/04/09 13:49:02 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/04/10 14:28:49 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <ctime>
 # include <cstdlib>
 
+// deque
 bool parsing(int argc, char** argv);
 std::deque<int> getJacobsthal(int size);
 std::deque<std::deque<int> > enterPair(std::deque<int> arg);
@@ -30,6 +31,9 @@ std::deque<int> setArgToDeque(int argc, char** argv);
 std::deque<int> getHigh(std::deque<std::deque<int> > list, int last);
 std::deque<int> getLow(std::deque<std::deque<int> > list);
 std::deque<int> jbSort(std::deque<int> high, std::deque<int> low, std::deque<int> jb);
+
+// vector
+std::vector<int> _getJacobsthal(int size);
 
 // DEBUG
 void printC(std::deque<int> c);

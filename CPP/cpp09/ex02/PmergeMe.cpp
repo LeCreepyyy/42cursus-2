@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: creepy <creepy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:44:21 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/04/09 17:53:01 by creepy           ###   ########.fr       */
+/*   Updated: 2024/04/10 14:27:00 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,6 +177,7 @@ void insertSort(std::deque<int> & high, std::deque<int> low, int i) {
 //     return ;
 // }
 
+
 std::deque<int> jbSort(std::deque<int> high, std::deque<int> low, std::deque<int> jb) {
     for (size_t i = 0; i < jb.size() ; i++)
     {
@@ -188,6 +189,139 @@ std::deque<int> jbSort(std::deque<int> high, std::deque<int> low, std::deque<int
             while (z > jb[i - 1])
             {
                 insertSort(high, low, z);
+                z--;
+            }
+        }
+    }
+    return (high);
+}
+
+// -==================================================================================================================-
+
+void    vec_pop_front(std::vector<int> & vec) {
+    int tmp = vec[vec.size() - 1];
+    vec[vec.size() - 1] = vec[0];
+    vec[0] = tmp;
+    vec.pop_back();
+}
+
+std::vector<int> _getJacobsthal(int size) {
+    std::vector<int> jacobsthal;
+    int prev = 0;
+    int current = 1;
+    int next = 0;
+
+    jacobsthal.push_back(0);
+    while (current <= size)
+    {
+        next = current + (2 * prev);
+        prev = current;
+        current = next;
+        jacobsthal.push_back(current);
+    }
+    if (jacobsthal.back() > size) {
+        jacobsthal.pop_back();
+        if (jacobsthal.back() != size)
+            jacobsthal.push_back(size);
+    }
+    return jacobsthal;
+}
+
+std::vector<int> _setArgToDeque(int argc, char** argv) {
+    std::vector<int> argList;
+    for (int i = 1; i != argc; i++)
+        argList.push_back(atoi(argv[i]));
+    return argList;
+}
+
+void    _swapInPair(std::vector<int> & pair) {
+    int tmp = pair.front();
+    vec_pop_front(pair);
+    pair.push_back(tmp);
+}
+
+void    _swapPair(std::vector<std::vector<int> > & pair, size_t i) {
+    std::vector<int> tmp = pair[i - 1];
+    pair[i - 1] = pair[i];
+    pair[i] = tmp;
+}
+
+bool _compareHigh(const std::vector<int> a, const std::vector<int> b) {
+    return (a[1] < b[1]);
+}
+
+std::vector<std::vector<int> > _enterPair(std::vector<int> arg) {
+    std::vector<std::vector<int> > chainPair;
+    std::vector<int> tmpPair;
+    while (arg.size() != 0) {
+        tmpPair.push_back(arg.front());
+        vec_pop_front(arg);
+        tmpPair.push_back(arg.front());
+        vec_pop_front(arg);
+        if (tmpPair.front() > tmpPair.back())
+            _swapInPair(tmpPair);
+        chainPair.push_back(tmpPair);
+        vec_pop_front(tmpPair);
+        vec_pop_front(tmpPair);
+    }
+    std::sort(chainPair.begin(), chainPair.end(), _compareHigh);
+    return (chainPair);
+}
+
+std::vector<int> _getHigh(std::vector<std::vector<int> > list, int last) {
+    std::vector<int> high;
+    for (size_t i = 0; i != list.size(); i++) {
+        high.push_back(list[i][1]);
+    }
+    if (last >= 0)
+        high.insert(high.begin(), last);
+    std::sort(high.begin(), high.end());
+    return (high);
+}
+
+std::vector<int> _getLow(std::vector<std::vector<int> > list) {
+    std::vector<int> low;
+    for (size_t i = 0; i != list.size(); i++) {
+        low.push_back(list[i][0]);
+    }
+    return (low);
+}
+
+void _swapInsertSort(int u, std::vector<int> & high) {
+    int tmp = high[u + 1];
+    high[u + 1] = high[u];
+    high[u] = tmp; 
+}
+
+void _insertSort(std::vector<int> & high, std::vector<int> low, int i) {
+    int nbr = low[i];
+    static int orginal_size = high.size();
+    i += (high.size() - orginal_size);
+    while (i >= 0) {
+        if (high[i] < nbr)
+            break;
+        i--;
+    }
+    high.insert(high.begin(), nbr);
+    int u = 0;
+    while (i >= 0) {
+        _swapInsertSort(u, high);
+        i--;
+        u++;
+    }
+}
+
+std::vector<int> _jbSort(std::vector<int> high, std::vector<int> low, std::vector<int> jb) {
+    for (size_t i = 0; i < jb.size() ; i++)
+    {
+        if (i == 0)
+            _insertSort(high, low, 0);
+        else
+        {
+            int z = jb[i];
+            while (z > jb[i - 1])
+            {
+                _insertSort(high, low, z);
                 z--;
             }
         }
