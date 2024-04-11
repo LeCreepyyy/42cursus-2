@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 10:17:17 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/04/11 10:38:40 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/04/11 12:10:45 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,23 +48,23 @@ int main(int argc, char** argv) {
     clock_t end = clock();
     double time = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000;
 
-    std::cout << "After : ";
+    std::cout << "After deque sort : ";
     printC(res);
 
-    std::cout << "Time to process a range of " << (argc - 1) << " elements with std::deque : " << time << " us" << std::endl;
 
     // std::vector<int> :
     std::vector<int> vec(listArg.begin(), listArg.end());
-    start = clock();
+    clock_t startV = clock();
     std::vector<std::vector<int> > listV = _enterPair(vec);
     std::vector<int> resV = _jbSort(_getHigh(listV, lastNbr), _getLow(listV), _getJacobsthal(_getLow(listV).size() - 1));
-    end = clock();
-    time = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000;
+    clock_t endV = clock();
+    double timeV = static_cast<double>(endV - startV) / CLOCKS_PER_SEC * 1000;
 
-    std::cout << "After : ";
+    std::cout << "After vector sort : ";
     printV(resV);
 
     std::cout << "Time to process a range of " << (argc - 1) << " elements with std::deque : " << time << " us" << std::endl;
+    std::cout << "Time to process a range of " << (argc - 1) << " elements with std::vector : " << timeV << " us" << std::endl;
 
     return (0);
 }
