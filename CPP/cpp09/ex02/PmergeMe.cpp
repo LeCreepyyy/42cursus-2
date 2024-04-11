@@ -6,7 +6,7 @@
 /*   By: vpoirot <vpoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:44:21 by vpoirot           #+#    #+#             */
-/*   Updated: 2024/04/10 14:27:00 by vpoirot          ###   ########.fr       */
+/*   Updated: 2024/04/11 11:44:38 by vpoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,73 +122,44 @@ std::deque<int> getLow(std::deque<std::deque<int> > list) {
     return (low);
 }
 
-void swapInsertSort(int u, std::deque<int> & high) {
-    int tmp = high[u + 1];
-    high[u + 1] = high[u];
-    high[u] = tmp; 
-}
+void    insert_sort(std::deque<int>& highs, std::deque<int>& lows, int z)
+{
+    static int s = 0;
+    s++;
 
-void insertSort(std::deque<int> & high, std::deque<int> low, int i) {
-    int nbr = low[i];
-    static int orginal_size = high.size();
-    i += (high.size() - orginal_size);
-    while (i >= 0) {
-        if (high[i] < nbr)
-            break;
-        i--;
+    if (z == 0)
+        highs.insert(highs.begin(), lows[0]);
+    else
+    {
+        int r_min = 0;
+        int r_max = s + (z - 1); 
+        while (r_min <= r_max)
+        {
+            int mid = (r_min + r_max) / 2;
+
+            if (highs[mid] < lows[z])
+                r_min = mid + 1;
+            else
+                r_max = mid - 1;
+        }
+        if (highs.begin() + r_min > highs.end())
+            highs.insert(highs.end(), lows[z]);
+        else
+            highs.insert(highs.begin() + r_min, lows[z]);
     }
-    high.push_front(nbr);
-    int u = 0;
-    while (i >= 0) {
-        swapInsertSort(u, high);
-        i--;
-        u++;
-    }
 }
-
-// void setC(std::deque<int> & high, int nbr, int i) {
-//     high.push_front(nbr);
-//     int u = 0;
-//     while (u != (i - 1)) {
-//         swapInsertSort(u, high);
-//         u++;
-//     }
-// }
-
-// void insert_sort(std::deque<int> & high, std::deque<int> low, int z) {
-//     int nbr = low[z];
-//     if (z == 0 || (z == 1 && high[0] > nbr)) {
-//         high.push_front(nbr);
-//         return ;
-//     }
-//     else if (z == 1 && high[0] < nbr) {
-//         high.push_front(nbr);
-//         swapInsertSort(0, high);
-//         return ;
-//     }
-//     else if (high[z - 1] < nbr && high[z] > nbr) {
-//         setC(high, nbr, z);
-//         return ;
-//     }
-//     else if (high[(z / 2)] > nbr) {
-//         z /= 2;
-//         insert_sort(high, low, z);
-//     }
-//     return ;
-// }
-
 
 std::deque<int> jbSort(std::deque<int> high, std::deque<int> low, std::deque<int> jb) {
     for (size_t i = 0; i < jb.size() ; i++)
     {
         if (i == 0)
-            insertSort(high, low, 0);
+            insert_sort(high, low, 0);
         else
         {
             int z = jb[i];
             while (z > jb[i - 1])
             {
-                insertSort(high, low, z);
+                insert_sort(high, low, z);
                 z--;
             }
         }
@@ -199,9 +170,9 @@ std::deque<int> jbSort(std::deque<int> high, std::deque<int> low, std::deque<int
 // -==================================================================================================================-
 
 void    vec_pop_front(std::vector<int> & vec) {
-    int tmp = vec[vec.size() - 1];
-    vec[vec.size() - 1] = vec[0];
-    vec[0] = tmp;
+    for (size_t i = 0; i != (vec.size() - 1); i++) {
+        vec[i] = vec[i + 1];
+    }
     vec.pop_back();
 }
 
@@ -287,27 +258,30 @@ std::vector<int> _getLow(std::vector<std::vector<int> > list) {
     return (low);
 }
 
-void _swapInsertSort(int u, std::vector<int> & high) {
-    int tmp = high[u + 1];
-    high[u + 1] = high[u];
-    high[u] = tmp; 
-}
+void    _insert_sort(std::vector<int>& highs, std::vector<int>& lows, int z)
+{
+    static int s = 0;
+    s++;
 
-void _insertSort(std::vector<int> & high, std::vector<int> low, int i) {
-    int nbr = low[i];
-    static int orginal_size = high.size();
-    i += (high.size() - orginal_size);
-    while (i >= 0) {
-        if (high[i] < nbr)
-            break;
-        i--;
-    }
-    high.insert(high.begin(), nbr);
-    int u = 0;
-    while (i >= 0) {
-        _swapInsertSort(u, high);
-        i--;
-        u++;
+    if (z == 0)
+        highs.insert(highs.begin(), lows[0]);
+    else
+    {
+        int r_min = 0;
+        int r_max = s + (z - 1); 
+        while (r_min <= r_max)
+        {
+            int mid = (r_min + r_max) / 2;
+
+            if (highs[mid] < lows[z])
+                r_min = mid + 1;
+            else
+                r_max = mid - 1;
+        }
+        if (highs.begin() + r_min > highs.end())
+            highs.insert(highs.end(), lows[z]);
+        else
+            highs.insert(highs.begin() + r_min, lows[z]);
     }
 }
 
@@ -315,13 +289,13 @@ std::vector<int> _jbSort(std::vector<int> high, std::vector<int> low, std::vecto
     for (size_t i = 0; i < jb.size() ; i++)
     {
         if (i == 0)
-            _insertSort(high, low, 0);
+            _insert_sort(high, low, 0);
         else
         {
             int z = jb[i];
             while (z > jb[i - 1])
             {
-                _insertSort(high, low, z);
+                _insert_sort(high, low, z);
                 z--;
             }
         }
